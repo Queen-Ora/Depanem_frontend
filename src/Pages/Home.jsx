@@ -11,6 +11,7 @@ import OurBests from '../Components/OurBests.jsx'
 import Testimonials from '../Components/Testimonials.jsx'
 import Footer from '../Components/Footer.jsx'
 import BackToTop from '../Components/BackToTop.jsx'
+import { Outlet } from 'react-router-dom'
 
 
 
@@ -29,7 +30,7 @@ export default function Home() {
         <Testimonials />
         <Footer />
         <BackToTop />
-  
+  <Outlet></Outlet>
 
     </div>
   )

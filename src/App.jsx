@@ -60,6 +60,7 @@ export default function App() {
       element: ''
     }
   ]);
+  
   return (
     <div>
       <RouterProvider router={route} />
