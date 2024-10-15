@@ -1,56 +1,91 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Css/Login.css';  // Réutilisation du fichier CSS
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const Register = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    phoneNumber: ''
-  });
-  const [imageUploadVisible, setImageUploadVisible] = useState(false);  // Gérer la visibilité de l'input image
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [avatar, setAvatar] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData({ ...formData, [id]: value });
-  };
-
+  const [imageUploadVisible, setImageUploadVisible] = useState(false);  // Gérer la visibilité de l'input image
   const handleImageClick = () => {
     setImageUploadVisible(true);  // Rendre l'input de type image visible
   };
+  
 
-  const handleSubmit = (e) => {
+  
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
 
-    // Validation basique
-    if (formData.password !== formData.confirmPassword) {
-      setError('Les mots de passe ne correspondent pas');
+    if (password !== confirmPassword) {
+toast.error('Les mots de passe ne sont pas identiques');
       setLoading(false);
       return;
     }
 
-    // Simule l'enregistrement de l'utilisateur
-    setTimeout(() => {
+    const formData = new FormData();
+    formData.append('FirstName', firstName);
+    formData.append('LastName', lastName);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('password', password);
+    formData.append('password_confirmation', confirmPassword);
+    if (avatar) {
+      formData.append('avatar', avatar);
+    }
+    // if (avatar) {
+    //   const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+    //   if (!validTypes.includes(avatar.type)) {
+    //     toast.error('Le fichier doit être une image au format jpeg, jpg, png ou gif.');
+    //     setLoading(false);
+    //     return;
+    //   }
+    //   formData.append('avatar', avatar);
+    // }
+  
+
+    try {
+      const response = await axios.post('http://localhost:8000/api/depanem/registerUser', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log(response);
+      toast.success('Inscription réussie');
       setLoading(false);
-      console.log('Inscription réussie', formData);
-      // Ajoutez la redirection vers une autre page après inscription réussie si nécessaire
-    }, 2000);
-  };
+      
+      
+    } catch (error) {
+      setLoading(false); // Arrêtez le chargement
+    if (error.response && error.response.data && error.response.data.data) {
+      // Gestion des erreurs de validation
+      Object.values(error.response.data.data).forEach((err) => {
+        toast.error(err[0]);  // Affiche chaque message d'erreur
+      });
+    } else {
+      toast.error('Une erreur est survenue lors de l\'inscription.');
+    }
+};
+      
+      
+    }
+
 
   return (
     <div className="login-page">
       <div className="login-container">
         <div className="login-form">
           <h2>Inscription</h2>
-          {error && <div className="alert alert-danger">{error}</div>}
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} encType="multipart/form-data">
             
             <div className="mb-3">
               <label htmlFor="lastName" className="form-label">Nom</label>
@@ -59,8 +94,8 @@ const Register = () => {
                 className="form-control"
                 id="lastName"
                 placeholder="Entrez votre nom"
-                value={formData.lastName}
-                onChange={handleChange}
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 required
               />
             </div>
@@ -72,8 +107,8 @@ const Register = () => {
                 className="form-control"
                 id="firstName"
                 placeholder="Entrez votre prénom"
-                value={formData.firstName}
-                onChange={handleChange}
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 required
               />
             </div>
@@ -85,8 +120,8 @@ const Register = () => {
                 className="form-control"
                 id="email"
                 placeholder="Entrez votre email"
-                value={formData.email}
-                onChange={handleChange}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -98,8 +133,8 @@ const Register = () => {
                 className="form-control"
                 id="phoneNumber"
                 placeholder="Entrez votre numéro de téléphone"
-                value={formData.phoneNumber}
-                onChange={handleChange}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 required
               />
             </div>
@@ -112,8 +147,8 @@ const Register = () => {
                 className="form-control"
                 id="password"
                 placeholder="Créez un mot de passe"
-                value={formData.password}
-                onChange={handleChange}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
@@ -125,8 +160,8 @@ const Register = () => {
                 className="form-control"
                 id="confirmPassword"
                 placeholder="Confirmez le mot de passe"
-                value={formData.confirmPassword}
-                onChange={handleChange}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
             </div>
@@ -147,6 +182,7 @@ const Register = () => {
                 <input
                   type="file"
                   className="form-control"
+                  onChange={(e) => setAvatar(e.target.files[0])}
                   id="profileImage"
                   accept="image/*"
                 />
@@ -156,6 +192,7 @@ const Register = () => {
             <button type="submit" className="btn btn-primary" disabled={loading}>
               {loading ? 'Chargement...' : "S'inscrire"}
             </button>
+            {/* <button type="submit" className="btn btn-primary">S'inscrire</button> */}
           </form>
           <p className="form-text">
             Vous avez déjà un compte ? <a href="/login">Se connecter</a>
@@ -164,6 +201,6 @@ const Register = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Register;
