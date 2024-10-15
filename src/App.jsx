@@ -4,10 +4,12 @@ import "./App.css";
 import Home from "./Pages/Home";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min'; //celui ci c'est pour gerer les animations
-import AboutPage from "./Pages/About";
+import AboutPage from "./Pages/AboutPage";
 import Services from "./Pages/Services";
 import Booking from "./Pages/Booking";
 import Testimonial from "./Pages/Testimonial";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register/Register-User";
 
 
 
@@ -36,12 +38,12 @@ export default function App() {
       element:<Testimonial/>
     },
     {
-      path: "/chat",
-      element: ''
+      path: "/login",
+      element: <Login />,
     },
     {
-      path: "/group",
-      element: ''
+      path: "/register-user",
+      element:<Register/>
     },
     {
       path: "/createGroup",
