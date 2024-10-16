@@ -1,0 +1,92 @@
+/* src/Sidebar.css */
+
+.bg-turbo-yellow {
+    background-color: #ffcc19;
+}
+
+.bg-turbo-yellow-10 {
+    background-color: #f4e74c;
+}
+
+.bg-turbo-yellow-20 {
+    background-color: #e8df80;
+}
+
+.bg-turbo-yellow-30 {
+    background-color: #dcd5b3;
+}
+
+.bg-turbo-yellow-40 {
+    background-color: #d1cbdd;
+}
+
+.bg-turbo-yellow-50 {
+    background-color: #ffcc19;
+}
+
+.bg-turbo-yellow-60 {
+    background-color: #e6b514;
+}
+
+.bg-turbo-yellow-70 {
+    background-color: #d4a40e;
+}
+
+.bg-turbo-yellow-80 {
+    background-color: #c39b0a;
+}
+
+.bg-turbo-yellow-90 {
+    background-color: #b28d06;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #ffcc19;
+    color: #6b6b6b;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #e6b514;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #d4a40e;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #ffcc19;
+    background: #6b6b6b;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}

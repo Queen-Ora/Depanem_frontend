@@ -10,6 +10,10 @@ import Booking from "./Pages/Booking";
 import Testimonial from "./Pages/Testimonial";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register/Register-User";
+import TechnicianRegister from "./Pages/Register/Register-Technician";
+// import ProfilePage from "./Pages/Profile";
+import Sidebar from "./Components/Sidebar";
+
 
 
 
@@ -46,12 +50,12 @@ export default function App() {
       element:<Register/>
     },
     {
-      path: "/createGroup",
-      element: ''
+      path: "/technician-user",
+      element: <TechnicianRegister/>
     },
     {
-      path: "/GroupDetails/:groupId",
-      element: ''
+      path: "profile",
+      element: <Sidebar />
     },
     {
       path: "/addMember/:groupId",

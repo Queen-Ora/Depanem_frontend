@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../Css/Register.css';  // Réutilisation du fichier CSS
+import '../Css/Register.css'; // Réutilisation du fichier CSS
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { IoArrowBackCircleSharp } from 'react-icons/io5';
 
-const Register = () => {
+const TechnicianRegister = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [matricule, setMatricule] = useState(''); // État pour le numéro de matricule
+  const [profession, setProfession] = useState(''); // Nouveau champ pour la profession
+  const [location, setLocation] = useState(''); // Nouveau champ pour la localisation
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [avatar, setAvatar] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [imageUploadVisible, setImageUploadVisible] = useState(false);  // Gérer la visibilité de l'input image
+  const [imageUploadVisible, setImageUploadVisible] = useState(false);
+
   const handleImageClick = () => {
-    setImageUploadVisible(true);  // Rendre l'input de type image visible
+    setImageUploadVisible(true);
   };
 
   const handleSubmit = async (e) => {
@@ -24,7 +28,7 @@ const Register = () => {
     setLoading(true);
 
     if (password !== confirmPassword) {
-toast.error('Les mots de passe ne sont pas identiques');
+      toast.error('Les mots de passe ne sont pas identiques');
       setLoading(false);
       return;
     }
@@ -33,48 +37,47 @@ toast.error('Les mots de passe ne sont pas identiques');
     formData.append('FirstName', firstName);
     formData.append('LastName', lastName);
     formData.append('email', email);
-    formData.append('phone', phone);
-    formData.append('password', password);
     formData.append('password_confirmation', confirmPassword);
+    formData.append('phone', phone);
+    formData.append('profession', profession); // Ajout de la profession
+    formData.append('localisation', location); // Ajout de la localisation
+    formData.append('matricule', matricule); // Ajout du numéro de matricule
+    formData.append('password', password);
     if (avatar) {
-      formData.append('avatar', avatar);
-    }
-  
+        formData.append('avatar', avatar);
+      }
+
     try {
-      const response = await axios.post('http://localhost:8000/api/depanem/registerUser', formData, {
+        
+      const response = await axios.post('http://localhost:8000/api/depanem/technicianRegister', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log(response);
+    //   console.log(response);
       toast.success('Inscription réussie');
-      setLoading(false);
-      
-      
+      // Rediriger ou réinitialiser les champs si nécessaire
     } catch (error) {
-      setLoading(false); // Arrêtez le chargement
-    if (error.response && error.response.data && error.response.data.data) {
-      // Gestion des erreurs de validation
-      Object.values(error.response.data.data).forEach((err) => {
-        toast.error(err[0]);  // Affiche chaque message d'erreur
-      });
-    } else {
-      toast.error('Une erreur est survenue lors de l\'inscription.');
+      if (error.response && error.response.data) {
+        // Afficher les erreurs de validation
+        Object.values(error.response.data.data).forEach((message) => {
+          toast.error(message.join(', '));
+        });
+      } else {
+        toast.error('Une erreur est survenue lors de l\'inscription');
+      }
+    } finally {
+      setLoading(false);
     }
-};
-      
-      
-    }
-
+  };
 
   return (
     <div className="login-page">
       <div className="login-container">
         <div className="login-form">
-        <IoArrowBackCircleSharp onClick={() => window.location.href = '/'}   className="fa-2x text-primary mb-3 cursor-pointer" size={50}/>
-          <h2>Inscription</h2>
-          <form onSubmit={handleSubmit} encType="multipart/form-data">
-            
+        <IoArrowBackCircleSharp onClick={() => window.location.href = '/'}  className="fa-2x text-primary mb-3 cursor-pointer" size={50}/>
+          <h2>Inscription Technicien</h2>
+          <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="lastName" className="form-label">Nom</label>
               <input
@@ -126,7 +129,6 @@ toast.error('Les mots de passe ne sont pas identiques');
                 required
               />
             </div>
-            {/*git remote add origin https://github.com/Queen-Ora/Depanem_backend.git*/}
 
             <div className="mb-3">
               <label htmlFor="password" className="form-label">Mot de passe</label>
@@ -153,8 +155,55 @@ toast.error('Les mots de passe ne sont pas identiques');
                 required
               />
             </div>
+            {/* Champ pour la profession */}
+            <div className="mb-3">
+              <label htmlFor="profession" className="form-label">Profession</label>
+              <select
+                className="form-control"
+                id="profession"
+                value={profession}
+                onChange={(e) => setProfession(e.target.value)}
+                required
+              >
+                <option value="">Sélectionnez votre profession</option>
+                <option value="Electricien">Électricien</option>
+                <option value="Plombier">Plombier</option>
+                <option value="Mécanicien">Mécanicien</option>
+                <option value="Menuisier">Menuisier</option>
+                <option value="Décorateur">Décorateur</option>
+                <option value="Ingénieur">Ingénieur</option>
+                <option value="Autre">Autre</option>
+                {/* Ajoutez d'autres professions si nécessaire */}
+              </select>
+            </div>
 
-            {/* Bouton pour afficher le champ de téléchargement d'image */}
+            <div className="mb-3">
+              <label htmlFor="matricule" className="form-label">Numéro de Matricule</label>
+              <input
+                type="text"
+                className="form-control"
+                id="matricule"
+                placeholder="Entrez votre numéro de matricule"
+                value={matricule}
+                onChange={(e) => setMatricule(e.target.value)}
+                required
+              />
+            </div>
+            {/* Champ pour la localisation */}
+            <div className="mb-3">
+              <label htmlFor="location" className="form-label">Localisation</label>
+              <input
+                type="text"
+                className="form-control"
+                id="location"
+                placeholder="Entrez votre localisation"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                required
+              />
+            </div>
+
+
             <button
               type="button"
               className="btn btn-secondary mb-3"
@@ -163,7 +212,6 @@ toast.error('Les mots de passe ne sont pas identiques');
               Ajouter une photo de profil
             </button>
 
-            {/* Input pour télécharger l'image, qui sera caché par défaut */}
             {imageUploadVisible && (
               <div className="mb-3">
                 <label htmlFor="profileImage" className="form-label">Photo de profil</label>
@@ -180,7 +228,6 @@ toast.error('Les mots de passe ne sont pas identiques');
             <button type="submit" className="btn btn-primary" disabled={loading}>
               {loading ? 'Chargement...' : "S'inscrire"}
             </button>
-            {/* <button type="submit" className="btn btn-primary">S'inscrire</button> */}
           </form>
           <p className="form-text">
             Vous avez déjà un compte ? <a href="/login">Se connecter</a>
@@ -189,6 +236,7 @@ toast.error('Les mots de passe ne sont pas identiques');
       </div>
     </div>
   );
-}
+};
 
-export default Register;
+export default TechnicianRegister;
+

@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from "../assets/img/logo.png";
 import { FaBars } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+
+  useEffect(() => {
+    // Ici, tu peux récupérer l'état d'authentification via un token ou une API
+    // et mettre à jour l'état de isAuthenticated en conséquence
+    // Exemple avec un token en durée limitée pour l'exemple :
+    setIsAuthenticated(localStorage.getItem('UserId')? true : false);
+
+  
+  }, []);
 
   return (
     <div className="container-fluid nav-bar bg-light">
@@ -38,17 +48,63 @@ export default function Navbar() {
 
             {/* Boutons de connexion pour les petits écrans */}
             <div className="d-flex d-lg-none">
-              <button className="btn btn-primary rounded py-2 px-4 me-3" onClick={handleOpenModal}>S'inscrire</button>
-              <button className="btn btn-outline-primary py-2 px-4" onClick={() => window.location.href = '/login'} style={{ outline: 'none', border: '1px solid blue' }}>Se Connecter</button>
+            {isAuthenticated ? (
+        <>
+          {/* Bouton "Mon espace privé" */}
+          <button className="btn btn-primary rounded py-2 px-4 me-3">
+            Mon espace privé
+          </button>
+          
+          {/* Bouton "Se déconnecter" */}
+          <button className="btn btn-outline-danger py-2 px-4" >
+            Se déconnecter
+          </button>
+        </>
+      ) : (
+        <>
+          {/* Bouton "S'inscrire" */}
+          <button className="btn btn-primary rounded py-2 px-4 me-3" onClick={handleOpenModal}>
+            S'inscrire
+          </button>
+
+          {/* Bouton "Se connecter" */}
+          <button className="btn btn-outline-primary py-2 px-4">
+            Se connecter
+          </button>
+        </>
+      )}
             </div>
           </div>
         </div>
+      
 
         {/* Boutons de connexion pour les grands écrans */}
         <div className="d-none d-lg-flex">
-          {/* Bouton S'inscrire qui ouvre le modal */}
-          <button className="btn btn-primary rounded py-2 px-4 me-3" onClick={handleOpenModal}>S'inscrire</button>
-          <button className="btn btn-outline-primary py-2 px-4" style={{ outline: 'none', border: '1px solid blue' }}>Se Connecter</button>
+        {isAuthenticated ? (
+        <>
+          {/* Bouton "Mon espace privé" */}
+          <button className="btn btn-primary rounded py-2 px-4 me-3">
+            Mon espace privé
+          </button>
+          
+          {/* Bouton "Se déconnecter" */}
+          <button className="btn btn-outline-danger py-2 px-4" >
+            Se déconnecter
+          </button>
+        </>
+      ) : (
+        <>
+          {/* Bouton "S'inscrire" */}
+          <button className="btn btn-primary rounded py-2 px-4 me-3" onClick={handleOpenModal}>
+            S'inscrire
+          </button>
+
+          {/* Bouton "Se connecter" */}
+          <button className="btn btn-outline-primary py-2 px-4">
+            Se connecter
+          </button>
+        </>
+      )}
         </div>
       </nav>
 
@@ -63,7 +119,7 @@ export default function Navbar() {
               </div>
               <div className="modal-body text-center">
                 <p>Veuillez sélectionner votre type d'inscription :</p>
-                <button className="btn btn-primary mb-3" onClick={() => alert("Inscription Technicien")}>Technicien</button>
+                <button className="btn btn-primary mb-3" onClick={() => window.location.href = '/technician-user'}>Technicien</button>
                 <br />
                 <button className="btn btn-secondary" onClick={() => window.location.href = '/register-user'} >Utilisateur</button>
               </div>
@@ -74,6 +130,7 @@ export default function Navbar() {
           </div>
         </div>
       )}
+      
     </div>
   );
 }

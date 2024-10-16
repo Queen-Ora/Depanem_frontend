@@ -1,5 +1,6 @@
+
 .login-page {
-    background-color: #f0f2f5;
+    background-color: #176cec;
     /* height: 100vh; */
     display: flex;
     justify-content: center;
@@ -23,7 +24,7 @@
     font-weight: bold;
 }
 
-.form-control {
+.login-form .form-control {
     border-radius: 30px;
     padding: 10px 20px;
     font-size: 14px;
