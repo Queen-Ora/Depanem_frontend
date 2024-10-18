@@ -1,7 +1,7 @@
 import React from 'react';
-import Service1 from '../assets/img/service-1.jpg';
-import Service2 from '../assets/img/service-2.jpg';
-import Service3 from '../assets/img/service-3.jpg';
+import Service1 from '../assets/img/d90c51ee-0e5f-47da-aff6-73efb0a0f6ee.jfif';
+import Service2 from '../assets/img/service_2.jfif';
+import Service3 from '../assets/img/service_3.jfif';
 import { FaArrowRight } from 'react-icons/fa';
 import 'animate.css';
 

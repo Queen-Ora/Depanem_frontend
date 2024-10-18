@@ -13,6 +13,7 @@ import Register from "./Pages/Register/Register-User";
 import TechnicianRegister from "./Pages/Register/Register-Technician";
 // import ProfilePage from "./Pages/Profile";
 import Sidebar from "./Components/Sidebar";
+import Profile from "./Pages/Profile";
 
 
 
@@ -55,7 +56,7 @@ export default function App() {
     },
     {
       path: "profile",
-      element: <Sidebar />
+      element: <Profile/>
     },
     {
       path: "/addMember/:groupId",

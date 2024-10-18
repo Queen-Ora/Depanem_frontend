@@ -1,11 +1,11 @@
 import React from 'react';
-import aboutImg1 from '../assets/img/about-1.jpg'; // Importez vos images
-import aboutImg2 from '../assets/img/about-2.jpg'; // Importez vos images
+import aboutImg1 from '../assets/img/carousel/about_1.jfif'; // Importez vos images
+import aboutImg2 from '../assets/img/carousel/about_2.jfif'; // Importez vos images
 import { FaCheck } from 'react-icons/fa';
 
 export default function About() {
   return (
-    <div className="container-xxl py-5">
+    <div className="container-xxl py-5"> 
       <div className="container">
         <div className="row g-5">
           <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -16,6 +16,7 @@ export default function About() {
               Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet.
             </p>
             <p className="fw-medium text-primary">
+              
             <FaCheck className="text-success me-3"/>Plomberie résidentielle et commerciale
             </p>
             <p className="fw-medium text-primary">

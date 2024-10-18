@@ -1,8 +1,8 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Carousel1 from '../assets/img/carousel/carousel-1.jpg';
-import Carousel2 from '../assets/img/carousel/carousel-2.jpg';
+import Carousel1 from '../assets/img/carousel/carousel_1.jfif';
+import Carousel2 from '../assets/img/carousel/carousel_2.jfif';
 // import './CustomCarousel.css'; // Importer votre fichier CSS personnalisé
 
 function DepanemCarousel() {

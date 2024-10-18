@@ -46,25 +46,28 @@ body {
 }
 
 .wrapper {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
+    position: relative;
+    
 }
 
+
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    position: fixed; /* Fix the sidebar, so it overlays on top of content */
+    width: 250px;
+    height: 100%;
     background: #ffcc19;
     color: #6b6b6b;
-    transition: all 0.3s;
+    left: -250px; /* Start hidden by positioning offscreen */
+    transition: all 0.3s ease; /* Smooth transition */
+    z-index: 1000; /* Ensure it's on top of other elements */
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    left: 0; /* When active, bring it fully into view */
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
+    padding: 40px;
     background: #e6b514;
 }
 
@@ -87,6 +90,20 @@ body {
 #content {
     width: 100%;
     padding: 20px;
-    min-height: 100vh;
-    transition: all 0.3s;
+    transition: margin-left 0.3s ease;
+    z-index: 1; /* Content stays below the sidebar */
+}
+
+#sidebarCollapse {
+    position: fixed; /* Fix the button so it stays visible */
+    top: 15px; /* Align it at the top */
+    left: 15px; /* Move it slightly from the left */
+    z-index: 1050; /* Higher than the sidebar */
+    background-color: #ffcc19; /* Match the sidebar color */
+    border: none;
+    outline: none;
+    color: #fff; /* White icon color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 18px;
 }
