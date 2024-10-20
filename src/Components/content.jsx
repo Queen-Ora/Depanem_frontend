@@ -2,13 +2,13 @@
 
 import React from 'react';
 import Facts from '../Components/Facts';
+import Greetings from './Greetings';
 
 const Content = ({ activePage }) => {
     const renderContent = () => {
         switch (activePage) {
             case 'home':
-                return <h2 style={{ textAlign: 'center' }}>Home</h2>;
-                // return <Facts />;
+                return <Greetings />;;
             case 'about':
                 return <h2 style={{ textAlign: 'center' }}>About Us</h2>;
             case 'page1':

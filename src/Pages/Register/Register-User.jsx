@@ -4,6 +4,7 @@ import '../Css/Register.css';  // Réutilisation du fichier CSS
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { IoArrowBackCircleSharp } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -14,7 +15,9 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [avatar, setAvatar] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const [imageUploadVisible, setImageUploadVisible] = useState(false);  // Gérer la visibilité de l'input image
+   //   mot de passe test : z4Cm&042
   const handleImageClick = () => {
     setImageUploadVisible(true);  // Rendre l'input de type image visible
   };
@@ -49,6 +52,8 @@ toast.error('Les mots de passe ne sont pas identiques');
       console.log(response);
       toast.success('Inscription réussie');
       setLoading(false);
+      navigate('/login'); // Redirection vers la page de connexion
+
       
       
     } catch (error) {

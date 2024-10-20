@@ -55,12 +55,12 @@ export default function App() {
       element: <TechnicianRegister/>
     },
     {
-      path: "profile",
+      path: "/profile",
       element: <Profile/>
     },
     {
-      path: "/addMember/:groupId",
-     element: ''
+      path: "test",
+     element: <Sidebar/>
     },
     {
       path: "*",

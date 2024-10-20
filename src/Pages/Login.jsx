@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Css/Register.css"; // Import the custom CSS from above
+import "./Css/Register.css"; 
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import axios from "axios";
 import toast from "react-hot-toast";
 import useLocalStorageWithExpiry from "../Components/Expiration";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [showModal, setShowModal] = useState(false);
@@ -14,7 +15,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [userId, setUserId] = useLocalStorageWithExpiry('UserId', null, 50000); // 1 heure
+  const navigate = useNavigate();
+  const [userId, setUserId] = useLocalStorageWithExpiry('UserId', null, 50000); // 5 secondes d'expiration
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -28,9 +30,10 @@ const Login = () => {
         }
       );
       toast.success("Connexion reussie!");
-      // localStorage.setItem("token", response.data.token); // Store the token in local storage for future use**
+      navigate('/'); // Redirige vers la page de dashboard avec l'ID de l'utilisateur
+     
       setUserId(response.data.user.id); // Enregistre l'ID de l'utilisateur avec expiration
-      // console.log(response.data.user.id);
+ 
     } catch (error) {
       console.error(error);
        // Gérer les erreurs de validation ou autres
@@ -46,7 +49,6 @@ const Login = () => {
 
   return (
     <div className="login-page">
-      {/* <p>{userId}</p> */}
       <div className="login-container">
         <div className="login-form">
           <IoArrowBackCircleSharp

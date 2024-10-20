@@ -1,29 +1,57 @@
-// src/Sidebar.js
-
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import './Sidebar.css'; // Fichier CSS
+import axios from 'axios';
 
 const Sidebar = ({ setActivePage }) => {
+    const [userData, setUserData] = useState(null);
     const [isActive, setIsActive] = useState(false);
+    const userId = JSON.parse(localStorage.getItem('UserId'));
 
     const toggleSidebar = () => {
         setIsActive(!isActive);
-    };
-
+    };    
     // Fonction pour changer de page et fermer la sidebar
     const handlePageChange = (page) => {
         setActivePage(page);
         toggleSidebar(); // Fermer la sidebar après le clic
     };
 
+    useEffect(() => {
+     
+        // Fonction pour récupérer les données de l'utilisateur
+        const fetchUser = async () => {
+            // console.log("Fetching user data...");
+            try {
+                const response = await axios.get(`http://localhost:8000/api/depanem/currentUser/${userId.value}`);
+                // const response = await axios.get(`http://localhost:8000/api/depanem/currentUser/1`);
+                // console.log(response.data.user);
+                
+                setUserData(response.data.user); // Stocke les données de l'utilisateur
+            } catch (err) {
+                // setError(err.response ? err.response.data.message : 'Une erreur est survenue');
+            }
+        };
+
+        fetchUser(); // Appelle l'API au chargement du composant
+    }, [] );
+    
+
     return (
         <>
             {/* Sidebar */}
             <nav id="sidebar" className={isActive ? 'active' : ''}>
-                <div className="sidebar-header">
-                    {/* <h4>Dacor Sidebar</h4> */}
-                </div>
+            <div className="sidebar-header">
+    <img 
+        src={userData && userData.avatar ? userData.avatar : 'http://localhost:8000/default.png'} 
+        alt="Logo" 
+        className="logo" 
+        width={100} 
+    /> <br />
+
+    <p>{userData && userData.firstname}</p>
+</div>
+
                 <ul className="list-unstyled components">
                     <li onClick={() => handlePageChange('home')}>
                         <a href="#">Home</a>
@@ -53,7 +81,7 @@ const Sidebar = ({ setActivePage }) => {
                 className="btn"
                 onClick={toggleSidebar}
             >
-                {isActive ? <FaArrowRight /> : <FaArrowLeft />}
+                {isActive ? <FaArrowLeft /> : <FaArrowRight />}
             </button>
         </>
     );

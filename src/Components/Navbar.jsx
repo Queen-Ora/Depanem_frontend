@@ -51,7 +51,7 @@ export default function Navbar() {
             {isAuthenticated ? (
         <>
           {/* Bouton "Mon espace privé" */}
-          <button className="btn btn-primary rounded py-2 px-4 me-3">
+          <button className="btn btn-primary rounded py-2 px-4 me-3" onClick={() => window.location.href = '/profile'}>
             Mon espace privé
           </button>
           
@@ -68,7 +68,7 @@ export default function Navbar() {
           </button>
 
           {/* Bouton "Se connecter" */}
-          <button className="btn btn-outline-primary py-2 px-4">
+          <button className="btn btn-outline-primary py-2 px-4" onClick={() => window.location.href = '/login'}> 
             Se connecter
           </button>
         </>
@@ -83,7 +83,7 @@ export default function Navbar() {
         {isAuthenticated ? (
         <>
           {/* Bouton "Mon espace privé" */}
-          <button className="btn btn-primary rounded py-2 px-4 me-3">
+          <button className="btn btn-primary rounded py-2 px-4 me-3" onClick={() => window.location.href = '/profile'}>
             Mon espace privé
           </button>
           
@@ -100,7 +100,7 @@ export default function Navbar() {
           </button>
 
           {/* Bouton "Se connecter" */}
-          <button className="btn btn-outline-primary py-2 px-4">
+          <button className="btn btn-outline-primary py-2 px-4" onClick={() => window.location.href = '/login'}>
             Se connecter
           </button>
         </>
