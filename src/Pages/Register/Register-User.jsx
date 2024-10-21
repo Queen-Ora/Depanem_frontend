@@ -35,7 +35,9 @@ toast.error('Les mots de passe ne sont pas identiques');
     const formData = new FormData();
     formData.append('FirstName', firstName);
     formData.append('LastName', lastName);
-    formData.append('email', email);
+    if(email){
+      formData.append('email', email);
+    }
     formData.append('phone', phone);
     formData.append('password', password);
     formData.append('password_confirmation', confirmPassword);
@@ -49,10 +51,12 @@ toast.error('Les mots de passe ne sont pas identiques');
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log(response);
+      // console.log(response.data.user.id);
       toast.success('Inscription réussie');
       setLoading(false);
-      navigate('/login'); // Redirection vers la page de connexion
+      localStorage.setItem('UserId', response.data.user.id);
+      navigate('/profile');
+      // navigate('/login'); // Redirection vers la page de connexion
 
       
       
@@ -107,7 +111,7 @@ toast.error('Les mots de passe ne sont pas identiques');
             </div>
 
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email</label>
+              <label htmlFor="email" className="form-label">Email  <span className="text-danger">(Pas obligatoire!)</span></label>
               <input
                 type="email"
                 className="form-control"
@@ -115,7 +119,7 @@ toast.error('Les mots de passe ne sont pas identiques');
                 placeholder="Entrez votre email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
+                // required
               />
             </div>
 
@@ -165,8 +169,8 @@ toast.error('Les mots de passe ne sont pas identiques');
               className="btn btn-secondary mb-3"
               onClick={handleImageClick}
             >
-              Ajouter une photo de profil
-            </button>
+              Ajouter une photo de profil 
+            </button><span className="text-danger">(Pas obligatoire!)</span>
 
             {/* Input pour télécharger l'image, qui sera caché par défaut */}
             {imageUploadVisible && (

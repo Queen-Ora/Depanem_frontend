@@ -36,7 +36,10 @@ const TechnicianRegister = () => {
     const formData = new FormData();
     formData.append('FirstName', firstName);
     formData.append('LastName', lastName);
-    formData.append('email', email);
+    if(email) {
+      
+      formData.append('email', email);
+    }
     formData.append('password_confirmation', confirmPassword);
     formData.append('phone', phone);
     formData.append('profession', profession); // Ajout de la profession
@@ -56,7 +59,8 @@ const TechnicianRegister = () => {
       });
     //   console.log(response);
       toast.success('Inscription réussie');
-      // Rediriger ou réinitialiser les champs si nécessaire
+      localStorage.setItem('UserId', response.data.user.id);
+      navigate('/profile');
     } catch (error) {
       if (error.response && error.response.data) {
         // Afficher les erreurs de validation
@@ -105,7 +109,7 @@ const TechnicianRegister = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email</label>
+              <label htmlFor="email" className="form-label">Email <span className="text-danger">(Pas obligatoire!)</span></label>
               <input
                 type="email"
                 className="form-control"
@@ -113,7 +117,7 @@ const TechnicianRegister = () => {
                 placeholder="Entrez votre email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
+                // required
               />
             </div>
 
@@ -177,7 +181,7 @@ const TechnicianRegister = () => {
               </select>
             </div>
 
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <label htmlFor="matricule" className="form-label">Numéro de Matricule</label>
               <input
                 type="text"
@@ -188,9 +192,9 @@ const TechnicianRegister = () => {
                 onChange={(e) => setMatricule(e.target.value)}
                 required
               />
-            </div>
+            </div> */}
             {/* Champ pour la localisation */}
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <label htmlFor="location" className="form-label">Localisation</label>
               <input
                 type="text"
@@ -201,7 +205,7 @@ const TechnicianRegister = () => {
                 onChange={(e) => setLocation(e.target.value)}
                 required
               />
-            </div>
+            </div> */}
 
 
             <button
@@ -211,7 +215,7 @@ const TechnicianRegister = () => {
             >
               Ajouter une photo de profil
             </button>
-
+            <span className="text-danger">(Pas obligatoire!)</span>
             {imageUploadVisible && (
               <div className="mb-3">
                 <label htmlFor="profileImage" className="form-label">Photo de profil</label>

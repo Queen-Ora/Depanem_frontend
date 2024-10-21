@@ -16,7 +16,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const [userId, setUserId] = useLocalStorageWithExpiry('UserId', null, 50000); // 5 secondes d'expiration
+  // const [userId, setUserId] = useLocalStorageWithExpiry('UserId', null, 50000); // 5 secondes d'expiration
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -31,8 +31,9 @@ const Login = () => {
       );
       toast.success("Connexion reussie!");
       navigate('/'); // Redirige vers la page de dashboard avec l'ID de l'utilisateur
+      localStorage.setItem('UserId', response.data.user.id); // Enregistre l'ID de l'utilisateur avec expiration
      
-      setUserId(response.data.user.id); // Enregistre l'ID de l'utilisateur avec expiration
+      // setUserId(response.data.user.id); // Enregistre l'ID de l'utilisateur avec expiration
  
     } catch (error) {
       console.error(error);
