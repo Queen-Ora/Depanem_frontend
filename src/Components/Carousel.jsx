@@ -21,7 +21,7 @@ function DepanemCarousel() {
                 <div className="col-10 col-lg-8">
                   <h5 className="text-white text-uppercase mb-3">Nos meilleurs mecaniciens</h5>
                   <h1 className="display-3 text-white mb-4">Je ne sais quoi ecrire</h1>
-<p className="fs-5 fw-medium text-white mb-4 pb-2">
+                  <p className="fs-5 fw-medium text-white mb-4 pb-2">
                     Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.
                   </p>
                   <a href="#" className="btn btn-primary py-md-3 px-md-5 me-3">Read More</a>
