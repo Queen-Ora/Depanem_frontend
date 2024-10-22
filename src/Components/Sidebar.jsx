@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import './Sidebar.css'; // Fichier CSS
 import axios from 'axios';
+import { BiEdit } from 'react-icons/bi';
 
 const Sidebar = ({ setActivePage }) => {
     const [userData, setUserData] = useState(null);
@@ -55,9 +56,10 @@ const Sidebar = ({ setActivePage }) => {
         alt="Logo" 
         className="logo" 
         width={100} 
-    /> <br />
+    /><br />
 
     <p>{userData && userData.firstname}</p>
+    <BiEdit size={25} color="white" /> 
 </div>
 
                 <ul className="list-unstyled components">

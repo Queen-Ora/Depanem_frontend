@@ -8,7 +8,7 @@ const Content = ({ activePage }) => {
     const renderContent = () => {
         switch (activePage) {
             case 'home':
-                return <Greetings />;;
+                return <Greetings />;
             case 'about':
                 return <h2 style={{ textAlign: 'center' }}>About Us</h2>;
             case 'page1':

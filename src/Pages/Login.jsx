@@ -61,13 +61,13 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
-                Email
+                Email ou numero de telephone
               </label>
               <input
-                type="email"
+                type="text"
                 className="form-control"
                 id="email"
-                placeholder="Enter your email"
+                placeholder="Votre email ou numero de telephone"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 required

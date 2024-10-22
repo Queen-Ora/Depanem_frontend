@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'wowjs/css/libs/animate.css';
-import WOW from 'wowjs';
+// import WOW from 'wowjs';
 
 export default function VideoAndForm() {
   const [videoSrc, setVideoSrc] = useState('');
 
   // Initialiser l'animation WOW.js une fois que le composant est monté
-  React.useEffect(() => {
-    new WOW.WOW().init();
-  }, []);
+
 
   const handleVideoPlay = (src) => {
     setVideoSrc(src);
