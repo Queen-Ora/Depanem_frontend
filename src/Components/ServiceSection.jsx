@@ -17,7 +17,7 @@ const ServicesSection = () => {
                             <img className="img-fluid w-100 h-100" src={Service1} alt="Residential Plumbing" />
                         </div>
                         <div className="d-flex align-items-center justify-content-between bg-light p-4">
-                            <h5 className="text-truncate me-3 mb-0">Residential Plumbing</h5>
+                            <h5 className="text-truncate me-3 mb-0">Climaticien</h5>
                             <a className="btn btn-square btn-outline-primary border-2 border-white flex-shrink-0" href="#">
                             <FaArrowRight />
                             </a>
@@ -30,7 +30,7 @@ const ServicesSection = () => {
                             <img className="img-fluid w-100 h-100" src={Service2} alt="Commercial Plumbing" />
                         </div>
                         <div className="d-flex align-items-center justify-content-between bg-light p-4">
-                            <h5 className="text-truncate me-3 mb-0">Commercial Plumbing</h5>
+                            <h5 className="text-truncate me-3 mb-0">plombier</h5>
                             <a className="btn btn-square btn-outline-primary border-2 border-white flex-shrink-0" href="#">
                             <FaArrowRight />
                             </a>
@@ -43,7 +43,7 @@ const ServicesSection = () => {
                             <img className="img-fluid w-100 h-100" src={Service3} alt="Emergency Servicing" />
                         </div>
                         <div className="d-flex align-items-center justify-content-between bg-light p-4">
-                            <h5 className="text-truncate me-3 mb-0">Emergency Servicing</h5>
+                            <h5 className="text-truncate me-3 mb-0">Mecaniciens</h5>
                             <a className="btn btn-square btn-outline-primary border-2 border-white flex-shrink-0" href="#">
                             <FaArrowRight />
                             </a>

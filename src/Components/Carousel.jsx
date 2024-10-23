@@ -18,13 +18,12 @@ function DepanemCarousel() {
             <div className="container">
               <div className="row justify-content-start">
                 <div className="col-10 col-lg-8">
-                  <h5 className="text-white text-uppercase mb-3">Nos meilleurs mecaniciens</h5>
-                  <h1 className="display-3 text-white mb-4">Je ne sais quoi ecrire</h1>
+                  <h5 className="text-white text-uppercase mb-3">Service de depannage technique</h5>
+                  <h1 className="display-3 text-white mb-4">DEPANE'M</h1>
                   <p className="fs-5 fw-medium text-white mb-4 pb-2">
-                    Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.
-                  </p>
-                  <a href="#" className="btn btn-primary py-md-3 px-md-5 me-3">Read More</a>
-                  <a href="#" className="btn btn-secondary py-md-3 px-md-5">Free Quote</a>
+                  Besoin d'aide maintenant ? Trouvez un technicien près de chez vous en quelques minutes pour résoudre vos pannes urgentes.                  </p>
+                  <a href="#" className="btn btn-primary py-md-3 px-md-5 me-3">Lire plus</a>
+                  <a href="#" className="btn btn-secondary py-md-3 px-md-5">Depanembot</a>
                 </div>
               </div>
             </div>
@@ -41,13 +40,13 @@ function DepanemCarousel() {
             <div className="container">
               <div className="row justify-content-start">
                 <div className="col-10 col-lg-8">
-                  <h5 className="text-white text-uppercase mb-3">Plumbing & Repairing Services</h5>
-                  <h1 className="display-3 text-white mb-4">Efficient Commercial Plumbing Services</h1>
+                  <h5 className="text-white text-uppercase mb-3">Pannes imprévues ? </h5>
+                  <h1 className="display-3 text-white mb-4"> Pas de panique</h1>
                   <p className="fs-5 fw-medium text-white mb-4 pb-2">
-                    Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.
+                  "Quand l'urgence frappe, nous sommes là. Trouvez un dépanneur fiable, rapidement et facilement."
                   </p>
-                  <a href="#" className="btn btn-primary py-md-3 px-md-5 me-3">Read More</a>
-                  <a href="#" className="btn btn-secondary py-md-3 px-md-5">Free Quote</a>
+                  <a href="#" className="btn btn-primary py-md-3 px-md-5 me-3">Lire plus</a>
+                  <a href="#" className="btn btn-secondary py-md-3 px-md-5">Depanembot</a>
                 </div>
               </div>
             </div>

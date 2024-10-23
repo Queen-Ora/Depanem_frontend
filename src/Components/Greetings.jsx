@@ -87,9 +87,12 @@ export default function Greetings() {
               <div className="col-md-4">
                 <div className="card">
                   <div className="card-body">
-                    <h5 className="card-title">Mecanicien</h5>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+
+                    <h5 className="card-title">Mecaniciens</h5>
+                    <p className="card-text">"Vos meilleurs mécaniciens, prêts à remettre votre véhicule sur la route en un rien de temps.
+                    .</p>
                     <button className="btn btn-primary" onClick={() => handleShowModal("Mecanicien")}>
+
                       <FaArrowRight />
                     </button>
                   </div>
@@ -98,9 +101,11 @@ export default function Greetings() {
               <div className="col-md-4">
                 <div className="card">
                   <div className="card-body">
+
                     <h5 className="card-title">Plombier</h5>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    <p className="card-text">Des plombiers qualifiés à votre service pour des réparations rapides et fiables.</p>
                     <button className="btn btn-primary" onClick={() => handleShowModal("Plombier")}>
+
                       <FaArrowRight />
                     </button>
                   </div>
@@ -109,9 +114,11 @@ export default function Greetings() {
               <div className="col-md-4">
                 <div className="card">
                   <div className="card-body">
+
                     <h5 className="card-title">Electricien</h5>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    <p className="card-text">Restez éclairé en toute sécurité avec nos électriciens certifiés, disponibles 24/7</p>
                     <button className="btn btn-primary" onClick={() => handleShowModal("Electricien")}>
+
                       <FaArrowRight />
                     </button>
                   </div>
@@ -126,8 +133,9 @@ export default function Greetings() {
               <div className="col-md-4">
                 <div className="card">
                   <div className="card-body">
-                    <h5 className="card-title">Peintre</h5>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    <h5 className="card-title">Climaticiens</h5>
+                    <p className="card-text">"Un air frais et confortable grâce à nos climaticiens qualifiés et réactifs."
+                    .</p>
                     <button className="btn btn-primary">
                       <FaArrowRight />
                     </button>
@@ -137,8 +145,9 @@ export default function Greetings() {
               <div className="col-md-4">
                 <div className="card">
                   <div className="card-body">
-                    <h5 className="card-title">Jardinier</h5>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    <h5 className="card-title">Serruriers</h5>
+                    <p className="card-text">"Déverrouillez vos soucis avec nos serruriers experts, disponibles à toute heure."
+                    </p>
                     <button className="btn btn-primary">
                       <FaArrowRight />
                     </button>
@@ -148,8 +157,9 @@ export default function Greetings() {
               <div className="col-md-4">
                 <div className="card">
                   <div className="card-body">
-                    <h5 className="card-title">Couvreur</h5>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    <h5 className="card-title">Technicien informatique</h5>
+                    <p className="card-text">"Dépannage informatique rapide et efficace pour tous vos soucis techniques."
+                    .</p>
                     <button className="btn btn-primary">
                       <FaArrowRight />
                     </button>

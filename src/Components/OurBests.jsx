@@ -13,8 +13,8 @@ export default function OurBests() {
     <div className="container-xxl py-5">
       <div className="container">
         <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-          <h6 className="text-secondary text-uppercase">Our Technicians</h6>
-          <h1 className="mb-5">Our Expert Technicians</h1>
+          <h6 className="text-secondary text-uppercase">Nos techniciens</h6>
+          <h1 className="mb-5">Nos experts techniciens</h1>
         </div>
         <div className="row g-4">
           {[

@@ -10,33 +10,33 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      text: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.",
+      text: "J'ai contacté un technicien en plein milieu de la nuit pour une urgence. Je suis vraiment satisfait de la rapidité et de la qualité du service",
       img: Testimonial1,
-      name: "Client Name 1",
+      name: "Honorine",
       profession: "Profession 1",
       stars: 5
     },
     {
       id: 2,
-      text: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.",
+      text: "J'avais des fuites d'eau dans la cuisine, et grâce à cette application, j'ai trouvé un plombier disponible rapidement. Travail soigné et efficace",
       img: Testimonial2,
-      name: "Client Name 2",
+      name: "Gracie",
       profession: "Profession 2",
       stars: 5
     },
     {
       id: 3,
-      text: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.",
+      text: "J'ai eu une panne d'électricité un dimanche soir, et en moins de 30 minutes, un technicien qualifié était chez moi. Service au top !",
       img: Testimonial3,
-      name: "Client Name 3",
+      name: "Deniwa",
       profession: "Profession 3",
       stars: 5
     },
     {
       id: 4,
-      text: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.",
+      text: "Un dépannage rapide pour ma voiture en panne sur la route. Le technicien était à l'heure et très professionnel. Je recommande fortement ",
       img: Testimonial4,
-      name: "Client Name 4",
+      name: "Pelagie",
       profession: "Profession 4",
       stars: 5
     },
@@ -46,8 +46,8 @@ export default function Testimonials() {
     <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
       <div className="container">
         <div className="text-center">
-          <h6 className="text-secondary text-uppercase">Testimonial</h6>
-          <h1 className="mb-5">Our Clients Say!</h1>
+          <h6 className="text-secondary text-uppercase">Temoignages</h6>
+          <h1 className="mb-5">Que disent nos utilisateurs!</h1>
         </div>
         <Carousel className="testimonial-carousel">
           {testimonials.map((testimonial) => (
