@@ -4,6 +4,7 @@ import '../Css/Register.css'; // Réutilisation du fichier CSS
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { IoArrowBackCircleSharp } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 
 const TechnicianRegister = () => {
   const [firstName, setFirstName] = useState('');
@@ -18,6 +19,7 @@ const TechnicianRegister = () => {
   const [avatar, setAvatar] = useState(null);
   const [loading, setLoading] = useState(false);
   const [imageUploadVisible, setImageUploadVisible] = useState(false);
+const navigate = useNavigate();
 
   const handleImageClick = () => {
     setImageUploadVisible(true);

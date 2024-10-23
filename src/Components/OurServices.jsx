@@ -1,7 +1,9 @@
 import React from 'react'
-import { FaArrowRight, FaCheck } from 'react-icons/fa'
+import { FaArrowRight, FaCheck, FaWrench } from 'react-icons/fa'
 import { IoWater } from 'react-icons/io5'
 import './style.css'
+import { FaBoltLightning } from 'react-icons/fa6'
+import { GiComputing } from 'react-icons/gi'
 
 export default function OurServices() {
   return (
@@ -30,7 +32,7 @@ export default function OurServices() {
                                 <p class="text-primary fw-medium">  <FaCheck className="text-success me-3"/>Service de qualité</p>
                                 <p class="text-primary fw-medium">  <FaCheck className="text-success me-3"/>Satisfaction du client</p>
                                 <p class="text-primary fw-medium">  <FaCheck className="text-success me-3"/>Disponibilité 24/7</p>
-                                <a href="#" class="btn bg-white text-primary w-100 mt-2">Read More           <FaArrowRight className=" text-secondary ms-2" /></a>
+                                {/* <a href="#" class="btn bg-white text-primary w-100 mt-2">Read More           <FaArrowRight className=" text-secondary ms-2" /></a> */}
                             </div>
                         </div>
 
@@ -38,6 +40,7 @@ export default function OurServices() {
                         <div class="carousel-item">
                             <div class="bg-light p-4">
                                 <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style={{width: '75px', height: '75px'}}>
+                                <FaWrench class="fa-2x text-primary" />
                                     {/* A remplacer apres */}
                                     {/* <i class="fa fa-toilet fa-2x text-primary"></i> */}
                                 </div>
@@ -46,7 +49,7 @@ export default function OurServices() {
                                 <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Service de qualité</p>
                                 <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Satisfaction du client</p>
                                 <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Support 24/7</p>
-                                <a href="#" class="btn bg-white text-primary w-100 mt-2">Read More<FaArrowRight className=" text-secondary ms-2" /></a>
+                                {/* <a href="#" class="btn bg-white text-primary w-100 mt-2">Read More<FaArrowRight className=" text-secondary ms-2" /></a> */}
                             </div>
                         </div>
 
@@ -54,6 +57,7 @@ export default function OurServices() {
                         <div class="carousel-item">
                             <div class="bg-light p-4">
                                 <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style={{width: '75px', height: '75px'}}>
+                                <FaBoltLightning class="fa-2x text-primary" />
                                    {/* A remplacer apres */}
                                     {/* <i class="fa fa-toilet fa-2x text-primary"></i> */}
                                 </div>
@@ -62,7 +66,7 @@ export default function OurServices() {
                                 <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Service de qualité</p>
                                 <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Satisfaction du client</p>
                                 <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Support 24/7</p>
-                                <a href="#" class="btn bg-white text-primary w-100 mt-2">Read More<FaArrowRight className=" text-secondary ms-2" /></a>
+                                {/* <a href="#" class="btn bg-white text-primary w-100 mt-2">Read More<FaArrowRight className=" text-secondary ms-2" /></a> */}
                             </div>
                         </div>
 
@@ -70,15 +74,16 @@ export default function OurServices() {
                         <div class="carousel-item">
                             <div class="bg-light p-4">
                                 <div class="d-flex align-items-center justify-content-center border border-5 border-white mb-4" style={{width: '75px', height: '75px'}}>
+                                <GiComputing class="fa-2x text-primary" />
                                      {/* A remplacer apres */}
                                     {/* <i class="fa fa-toilet fa-2x text-primary"></i> */}
                                 </div>
-                                <h4 class="mb-3">Water Heater Repair</h4>
+                                <h4 class="mb-3">Maintenancier</h4>
                                 <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
                                 <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Service de qualité</p>
                                 <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Satisfaction du client</p>
                                 <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Support 24/7</p>
-                                <a href="#" class="btn bg-white text-primary w-100 mt-2">Read More<FaArrowRight className=" text-secondary ms-2" /></a>
+                                {/* <a href="#" class="btn bg-white text-primary w-100 mt-2">Read More<FaArrowRight className=" text-secondary ms-2" /></a> */}
                             </div>
                         </div>
 

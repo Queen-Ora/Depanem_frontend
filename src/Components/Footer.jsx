@@ -12,7 +12,7 @@ export default function Footer() {
             <h4 className="text-light mb-4">Address</h4>
             <p className="mb-2"><FaMapMarkerAlt className="me-3" />123 Avenue, Lome,Togo</p>
             <p className="mb-2"><FaPhoneAlt className="me-3" />0022892622266</p>
-            <p className="mb-2"><FaEnvelope className="me-3" />Depanemtogo@gmail.com</p>
+            <p className="mb-2"><FaEnvelope className="me-1" />Depanemtogo@gmail.com</p>
             <div className="d-flex pt-2">
               <a className="btn btn-outline-light btn-social" href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
               <a className="btn btn-outline-light btn-social" href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
