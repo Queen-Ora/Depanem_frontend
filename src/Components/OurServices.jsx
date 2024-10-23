@@ -10,8 +10,8 @@ export default function OurServices() {
         <div class="col-md-12 col-lg-9">
             <div class="ms-lg-5 ps-lg-5">
                 <div class="text-center text-lg-start wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="text-secondary text-uppercase">Our Services</h6>
-                    <h1 class="mb-5">Explore Our Services</h1>
+                    <h6 class="text-secondary text-uppercase">Nos Services</h6>
+                    <h1 class="mb-5">Explorez Nos Services</h1>
                 </div>
 
                 {/* <!-- Bootstrap Carousel --> */}
@@ -25,11 +25,11 @@ export default function OurServices() {
                                 <IoWater class="fa-2x text-primary" />
                                     {/* <i class="fa fa-water fa-2x text-primary"></i> */}
                                 </div>
-                                <h4 class="mb-3">Drain Repair</h4>
-                                <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
-                                <p class="text-primary fw-medium">  <FaCheck className="text-success me-3"/>Quality Service</p>
-                                <p class="text-primary fw-medium">  <FaCheck className="text-success me-3"/>Customer Satisfaction</p>
-                                <p class="text-primary fw-medium">  <FaCheck className="text-success me-3"/>Support 24/7</p>
+                                <h4 class="mb-3">Plomberie</h4>
+                                <p>Une fuite d’eau, un évier bouché ou un chauffe-eau en panne ? Nos plombiers certifiés interviennent rapidement pour résoudre tous vos problèmes de plomberie.</p>
+                                <p class="text-primary fw-medium">  <FaCheck className="text-success me-3"/>Service de qualité</p>
+                                <p class="text-primary fw-medium">  <FaCheck className="text-success me-3"/>Satisfaction du client</p>
+                                <p class="text-primary fw-medium">  <FaCheck className="text-success me-3"/>Disponibilité 24/7</p>
                                 <a href="#" class="btn bg-white text-primary w-100 mt-2">Read More           <FaArrowRight className=" text-secondary ms-2" /></a>
                             </div>
                         </div>
@@ -41,10 +41,10 @@ export default function OurServices() {
                                     {/* A remplacer apres */}
                                     {/* <i class="fa fa-toilet fa-2x text-primary"></i> */}
                                 </div>
-                                <h4 class="mb-3">Toilet Pipe Repair</h4>
-                                <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
-                                <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Quality Service</p>
-                                <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Customer Satisfaction</p>
+                                <h4 class="mb-3">Mecanique</h4>
+                                <p> plus jamais immobilisé! Nos mécaniciens qualifiés sont prêts à intervenir rapidement pour tous vos besoins de réparation ou d’entretien automobile.</p>
+                                <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Service de qualité</p>
+                                <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Satisfaction du client</p>
                                 <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Support 24/7</p>
                                 <a href="#" class="btn bg-white text-primary w-100 mt-2">Read More<FaArrowRight className=" text-secondary ms-2" /></a>
                             </div>
@@ -57,10 +57,10 @@ export default function OurServices() {
                                    {/* A remplacer apres */}
                                     {/* <i class="fa fa-toilet fa-2x text-primary"></i> */}
                                 </div>
-                                <h4 class="mb-3">Sewer Line Repair</h4>
-                                <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
-                                <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Quality Service</p>
-                                <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Customer Satisfaction</p>
+                                <h4 class="mb-3">Electricité</h4>
+                                <p>Ne restez plus dans le noir ! Que ce soit pour un court-circuit, une panne générale ou une installation électrique, nos électriciens certifiés sont là pour vous fournir un service sûr et rapide</p>
+                                <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Service de qualité</p>
+                                <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Satisfaction du client</p>
                                 <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Support 24/7</p>
                                 <a href="#" class="btn bg-white text-primary w-100 mt-2">Read More<FaArrowRight className=" text-secondary ms-2" /></a>
                             </div>
@@ -75,8 +75,8 @@ export default function OurServices() {
                                 </div>
                                 <h4 class="mb-3">Water Heater Repair</h4>
                                 <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
-                                <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Quality Service</p>
-                                <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Customer Satisfaction</p>
+                                <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Service de qualité</p>
+                                <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Satisfaction du client</p>
                                 <p class="text-primary fw-medium"><FaCheck className="text-success me-3"/>Support 24/7</p>
                                 <a href="#" class="btn bg-white text-primary w-100 mt-2">Read More<FaArrowRight className=" text-secondary ms-2" /></a>
                             </div>

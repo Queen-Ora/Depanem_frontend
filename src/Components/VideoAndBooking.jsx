@@ -76,14 +76,14 @@ export default function VideoAndForm() {
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="bg-light text-center p-5">
-              <h1 className="mb-4">Book For A Service</h1>
+              <h1 className="mb-4">Reservez votre depanneur</h1>
               <form>
                 <div className="row g-3">
                   <div className="col-12 col-sm-6">
                     <input
                       type="text"
                       className="form-control border-0"
-                      placeholder="Your Name"
+                      placeholder="Nom"
                       style={{ height: '55px' }}
                     />
                   </div>
@@ -91,13 +91,13 @@ export default function VideoAndForm() {
                     <input
                       type="email"
                       className="form-control border-0"
-                      placeholder="Your Email"
+                      placeholder="Email"
                       style={{ height: '55px' }}
                     />
                   </div>
                   <div className="col-12 col-sm-6">
                     <select className="form-select border-0" style={{ height: '55px' }}>
-                      <option selected>Select A Service</option>
+                      <option selected>Selectionnez un Service</option>
                       <option value="1">Service 1</option>
                       <option value="2">Service 2</option>
                       <option value="3">Service 3</option>
@@ -108,7 +108,7 @@ export default function VideoAndForm() {
                       <input
                         type="text"
                         className="form-control border-0 datetimepicker-input"
-                        placeholder="Service Date"
+                        placeholder="Date du Service "
                         style={{ height: '55px' }}
                       />
                     </div>
@@ -116,12 +116,12 @@ export default function VideoAndForm() {
                   <div className="col-12">
                     <textarea
                       className="form-control border-0"
-                      placeholder="Special Request"
+                      placeholder="Votre requete"
                     ></textarea>
                   </div>
                   <div className="col-12">
                     <button className="btn btn-primary w-100 py-3" type="submit">
-                      Book Now
+                      Reservez 
                     </button>
                   </div>
                 </div>

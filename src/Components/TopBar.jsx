@@ -17,7 +17,7 @@ export default function TopBar() {
           <div className="h-100 d-inline-flex align-items-center me-4">
             <MdOutlineMailOutline color="blue"  size={20}/>
             {/* <i  className="far fa-envelope-open text-primary me-2"></i> */}
-            <p className="m-0">info@example.com</p>
+            <p className="m-0">Depanemtogo@gmail.com</p>
           </div>
           <div className="h-100 d-inline-flex align-items-center">
 

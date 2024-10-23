@@ -9,21 +9,21 @@ export default function About() {
       <div className="container">
         <div className="row g-5">
           <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-            <h6 className="text-secondary text-uppercase">À propos de nous</h6>
-            <h1 className="mb-4">Nous sommes une entreprise de plomberie de confiance depuis 1990</h1>
+            <h6 className="text-secondary text-uppercase">Qui sommes-nous ?</h6>
+            <h1 className="mb-4">
+            Nous sommes une équipe passionnée par la technologie et le service à la personne.</h1>
             <p className="mb-4">
-              Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. 
-              Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet.
+            Notre plateforme a été créée pour combler un vide dans la gestion des urgences techniques à domicile et en entreprise. Grâce à un réseau de professionnels certifiés et une interface intuitive, nous facilitons la mise en relation entre ceux qui ont besoin d’aide et les techniciens qui peuvent intervenir rapidement.voici ce qui nous rend unique.
             </p>
             <p className="fw-medium text-primary">
               
-            <FaCheck className="text-success me-3"/>Plomberie résidentielle et commerciale
+            <FaCheck className="text-success me-3"/>Réactivité 
             </p>
             <p className="fw-medium text-primary">
-            <FaCheck className="text-success me-3"/>Services de qualité à des prix abordables
+            <FaCheck className="text-success me-3"/>Professionnalisme 
             </p>
             <p className="fw-medium text-primary">
-            <FaCheck className="text-success me-3"/>Services d'urgence disponibles 24h/24 et 7j/7
+            <FaCheck className="text-success me-3"/>Disponibilité 24/7 
             </p>
           </div>
           <div className="col-lg-6 pt-4" style={{ minHeight: '500px' }}>

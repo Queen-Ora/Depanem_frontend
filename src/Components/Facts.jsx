@@ -22,22 +22,22 @@ export default function Facts() {
           <div className="col-md-6 col-lg-3 text-center wow fadeIn" >
             <FaCheck className="fa-2x text-white mb-3"  size={50}/>
             <h2 className="text-white mb-2" data-toggle="counter-up">1234</h2>
-            <p className="text-white mb-0">Years Experience</p>
+            <p className="text-white mb-0">Années d'experiences</p>
           </div>
           <div className="col-md-6 col-lg-3 text-center " >
             <FaUsersCog className="fa-2x text-white mb-3" size={50} />
             <h2 className="text-white mb-2" data-toggle="counter-up">1234</h2>
-            <p className="text-white mb-0">Expert Technicians</p>
+            <p className="text-white mb-0">Expert Techniciens</p>
           </div>
           <div className="col-md-6 col-lg-3 text-center ">
             <FaUsers className="fa-2x text-white mb-3" size={50} />
             <h2 className="text-white mb-2" data-toggle="counter-up">1234</h2>
-            <p className="text-white mb-0">Utilisateurs</p>
+            <p className="text-white mb-0">Utilisateurs/Jour</p>
           </div>
           <div className="col-md-6 col-lg-3 text-center  " >
             <FaWrench className="fa-2x text-white mb-3" size={50} />
             <h2 className="text-white mb-2" data-toggle="counter-up">1234</h2>
-            <p className="text-white mb-0">Completed Projects</p>
+            <p className="text-white mb-0">missions accomplies</p>
           </div>
         </div>
       </div>
