@@ -9,10 +9,11 @@ const Content = ({ activePage }) => {
         switch (activePage) {
             case 'home':
                 return <Greetings />;
-            case 'about':
-                return <h2 style={{ textAlign: 'center' }}>About Us</h2>;
-            case 'page1':
-                return <h2 style={{ textAlign: 'center' }}>Page 1</h2>;
+            case 'history':
+                return <h2 style={{ textAlign: 'center' }}>Mon historique</h2>;
+        
+            case 'settings':
+                return <h2 style={{ textAlign: 'center' }}>Paramètres</h2>;
             case 'page2':
                 return <h2 style={{ textAlign: 'center' }}>Page 2</h2>;
             case 'portfolio':

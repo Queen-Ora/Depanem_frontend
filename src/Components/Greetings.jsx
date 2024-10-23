@@ -1,9 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button, Card, Col, Modal, Row } from "react-bootstrap";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Greetings() {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedTechnicians, setSelectedTechnicians] = useState([]);
+  const [selectedTitle, setSelectedTitle] = useState("");
+  const [selectedProfession, setSelectedProfession] = useState(null);
+
+   // Example technician data
+   const technicians = {
+    Mecanicien: [
+      {
+        id: 1,
+        name: "Jean Dupont",
+        avatar: "https://randomuser.me/api/portraits/men/1.jpg",
+      },
+      {
+        id: 2,
+        name: "Paul Martin",
+        avatar: "https://randomuser.me/api/portraits/men/2.jpg",
+      },
+    ],
+    Plombier: [
+      {
+        id: 3,
+        name: "Marie Durand",
+        avatar: "https://randomuser.me/api/portraits/women/3.jpg",
+      },
+      {
+        id: 4,
+        name: "Julie Thomas",
+        avatar: "https://randomuser.me/api/portraits/women/4.jpg",
+      },
+    ],
+    Electricien: [
+      {
+        id: 5,
+        name: "Pierre Lambert",
+        avatar: "https://randomuser.me/api/portraits/men/5.jpg",
+      },
+    ],
+  };
+
+  // Handle showing modal with technicians for selected job
+  const handleShowModal = (profession) => {
+    setSelectedProfession(profession);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => setShowModal(false);
+
+
+
   const controlStyle = {
     position: 'absolute',
     top: '50%',
@@ -39,7 +89,7 @@ export default function Greetings() {
                   <div className="card-body">
                     <h5 className="card-title">Mecanicien</h5>
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary" onClick={() => handleShowModal("Mecanicien")}>
                       <FaArrowRight />
                     </button>
                   </div>
@@ -50,7 +100,7 @@ export default function Greetings() {
                   <div className="card-body">
                     <h5 className="card-title">Plombier</h5>
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary" onClick={() => handleShowModal("Plombier")}>
                       <FaArrowRight />
                     </button>
                   </div>
@@ -61,7 +111,7 @@ export default function Greetings() {
                   <div className="card-body">
                     <h5 className="card-title">Electricien</h5>
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary" onClick={() => handleShowModal("Electricien")}>
                       <FaArrowRight />
                     </button>
                   </div>
@@ -133,6 +183,41 @@ export default function Greetings() {
           <FaArrowRight style={iconStyle} />
         </button>
       </div>
+
+
+      {/* Modal */}
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Liste des {selectedProfession}s</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Row className="justify-content-center">
+            {technicians[selectedProfession]?.map((tech) => (
+              <Col key={tech.id} md={6} className="mb-4">
+                <Card className="shadow-sm text-center">
+                  <Card.Img
+                    variant="top"
+                    src={tech.avatar}
+                    alt={tech.name}
+                    className="rounded-circle mx-auto mt-3"
+                    style={{ width: "50px", height: "50px", objectFit: "cover" , border: "3px solid #007bff" }}
+                  />
+                  <Card.Body>
+                    <Card.Title>{tech.name}</Card.Title>
+                    <Button variant="primary">Contactez</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Fermer
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
     </div>
   );
 }

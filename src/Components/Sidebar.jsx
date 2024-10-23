@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaSignOutAlt } from 'react-icons/fa';
 import './Sidebar.css'; // Fichier CSS
 import axios from 'axios';
 import { BiEdit } from 'react-icons/bi';
+import { IoMdHome } from 'react-icons/io';
+import { GoHistory } from 'react-icons/go';
+import { IoSettings } from 'react-icons/io5';
 
 const Sidebar = ({ setActivePage }) => {
     const [userData, setUserData] = useState(null);
@@ -64,26 +67,26 @@ const Sidebar = ({ setActivePage }) => {
 
                 <ul className="list-unstyled components">
                     <li onClick={() => handlePageChange('home')}>
-                        <button className="btn btn-primary">Accueil</button>
+                        <button className="btn btn-primary"> <IoMdHome size={25}/> Accueil</button>
                     </li>
-                    <li onClick={() => handlePageChange('about')}>
-                        <a href="#">About</a>
+                    <li onClick={() => handlePageChange('history')}>
+                    <button className="btn btn-primary"> <GoHistory size={25}/> Historique</button>
                     </li>
-                    <li onClick={() => handlePageChange('page1')}>
-                        <a href="#">Page 1</a>
+                    <li onClick={() => handlePageChange('settings')}>
+                    <button className="btn btn-primary"> <IoSettings size={25}/> Parametres</button>
                     </li>
-                    <li onClick={() => handlePageChange('page2')}>
+                    {/* <li onClick={() => handlePageChange('page2')}>
                         <a href="#">Page 2</a>
-                    </li>
-                    <li onClick={() => handlePageChange('portfolio')}>
+                    </li> */}
+                    {/* <li onClick={() => handlePageChange('portfolio')}>
                         <a href="#">Portfolio</a>
-                    </li>
-                    <li onClick={() => handlePageChange('contact')}>
+                    </li> */}
+                    {/* <li onClick={() => handlePageChange('contact')}>
                         <a href="#">Contact</a>
-                    </li>
-                    <button className="btn btn-primary">Retour</button>
-                </ul>
-                <button className="btn btn-danger" onClick={handleLogout}>Deconnexion</button>
+                    </li> */}
+                    <a href="/"><button className="btn btn-primary" ><FaArrowLeft size={25} /> Retour</button></a>
+                </ul> 
+                <button className="btn btn-danger" onClick={handleLogout}>   <FaSignOutAlt size={24} /> Deconnexion</button>
             </nav>
 
             {/* Toggle Button - Always visible */}
