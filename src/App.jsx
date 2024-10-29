@@ -14,6 +14,7 @@ import TechnicianRegister from "./Pages/Register/Register-Technician";
 // import ProfilePage from "./Pages/Profile";
 import Sidebar from "./Components/Sidebar";
 import Profile from "./Pages/Profile";
+import ContactTechnician from "./Pages/ContactTechnician";
 
 
 
@@ -61,6 +62,9 @@ export default function App() {
     {
       path: "test",
      element: <Sidebar/>
+    },{
+      path: "/contact-technician/:tech_id",
+      element: <ContactTechnician />
     },
     {
       path: "*",

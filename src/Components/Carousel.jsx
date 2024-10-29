@@ -6,7 +6,7 @@ import Carousel2 from '../assets/img/carousel/carousel_2.jfif';
 
 function DepanemCarousel() {
   return (
-    <div className=" header-carousel container-fluid p-0 mb-5">
+    <div className=" header-carousel container-fluid p-0 mb-5" data-aos="fade-down" data-aos-duration="3000">
       <Carousel>
         <Carousel.Item>
           <img
@@ -15,7 +15,7 @@ function DepanemCarousel() {
             alt="Efficient Residential Plumbing Services"
           />
           <Carousel.Caption className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style={{ background: 'rgba(0, 0, 0, .4)' }}>
-            <div className="container">
+            <div className="container" data-aos="fade-up"data-aos-duration="3000">
               <div className="row justify-content-start">
                 <div className="col-10 col-lg-8">
                   <h5 className="text-white text-uppercase mb-3">Service de depannage technique</h5>
@@ -37,7 +37,7 @@ function DepanemCarousel() {
             alt="Efficient Commercial Plumbing Services"
           />
           <Carousel.Caption className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style={{ background: 'rgba(0, 0, 0, .4)' }}>
-            <div className="container">
+            <div className="container" data-aos="fade-up"data-aos-duration="3000">
               <div className="row justify-content-start">
                 <div className="col-10 col-lg-8">
                   <h5 className="text-white text-uppercase mb-3">Pannes imprévues ? </h5>

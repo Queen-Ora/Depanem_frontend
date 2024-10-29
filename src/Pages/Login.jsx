@@ -4,7 +4,7 @@ import "./Css/Register.css";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import axios from "axios";
 import toast from "react-hot-toast";
-import useLocalStorageWithExpiry from "../Components/Expiration";
+// import useLocalStorageWithExpiry from "../Components/Expiration";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -14,10 +14,10 @@ const Login = () => {
   const handleCloseModal = () => setShowModal(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   // const [userId, setUserId] = useLocalStorageWithExpiry('UserId', null, 50000); // 5 secondes d'expiration
-
   const handleSubmit = async e => {
     e.preventDefault();
     try {
@@ -29,8 +29,9 @@ const Login = () => {
           password
         }
       );
+      // Sauvegarde l'ID de l'utilisateur dans le local storage pour une durée d'expiration de 5 secondes
       toast.success("Connexion reussie!");
-      navigate('/'); // Redirige vers la page de dashboard avec l'ID de l'utilisateur
+      navigate('/profile'); // Redirige vers la page de dashboard avec l'ID de l'utilisateur
       localStorage.setItem('UserId', response.data.user.id); // Enregistre l'ID de l'utilisateur avec expiration
      
       // setUserId(response.data.user.id); // Enregistre l'ID de l'utilisateur avec expiration

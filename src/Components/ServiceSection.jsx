@@ -8,7 +8,7 @@ import 'animate.css';
 
 const ServicesSection = () => {
     return (
-        <div className="container-xxl py-5">
+        <div className="container-xxl py-5" data-aos="zoom-out" data-aos-duration="3000">
             <div className="container">
                 <div className="row g-4">
                     {/* Service Item 1 */}
