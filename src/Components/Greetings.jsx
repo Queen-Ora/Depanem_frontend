@@ -46,35 +46,6 @@ export default function Greetings() {
     setShowModal(true);
   };
 
-//   const SendRequest = async (e) => {
-//     e.preventDefault();
-//     // if (!localisation) {
-//     //   toast.error('La localisation est obligatoire')
-//     //   return;
-//     // }
-//     setIsLoading(true);
-//     try {
-//       const response = await axios.post(`http://localhost:8000/api/depanem/SendRequest/${tech_id}/${userId}`, {
-//         localisation,
-//         message,
-//       });
-// toast.success('Votre demande a été bien envoyé')
-  
-//     } catch (error) {
-//       console.error('Error:', error);
-
-//       if (error.response && error.response.status === 422) {
-//         const errorMessage = error.response.data.data?.localisation[0] || 'Erreur de validation';
-//         toast.error(errorMessage);
-//       } else {
-//         toast.error('Une erreur est survenue lors de l\'envoi de la demande.');
-//       }
-
-//       setIsLoading(false);
-//     }finally {
-//       setIsLoading(false); // Indiquer que le chargement est terminé
-//   }
-//     }
     const handleContactClick = (tech) => {
       // Vérifie si le technicien a un ID valide
       if (!tech || !tech.id) {
@@ -87,8 +58,6 @@ export default function Greetings() {
         setIsLoading(true);
         try {
           const response = await axios.post(`http://localhost:8000/api/depanem/SendRequest/${tech.id}/${userId}`, {
-            // localisation,
-            // message,
           });
     
           // Succès de l'envoi de la demande
@@ -116,8 +85,8 @@ export default function Greetings() {
     };
 
     const showContact = (tech) => {
-        // navigate(`/contact-technician/${tech.id}`); 
-    alert(`Technician ID: ${tech.id}`)
+        navigate(`technician-profile/${tech.id}`); 
+    // alert(`Technician ID: ${tech.id}`)
     };
     
 

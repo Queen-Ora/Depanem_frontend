@@ -11,15 +11,10 @@ import Testimonial from "./Pages/Testimonial";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register/Register-User";
 import TechnicianRegister from "./Pages/Register/Register-Technician";
-// import ProfilePage from "./Pages/Profile";
 import Sidebar from "./Components/Sidebar";
 import Profile from "./Pages/Profile";
 import ContactTechnician from "./Pages/ContactTechnician";
-
-
-
-
-
+import TechnicianProfile from "./Pages/TechnicianProfile";
 
 export default function App() {
   const route = createBrowserRouter([
@@ -65,6 +60,9 @@ export default function App() {
     },{
       path: "/contact-technician/:tech_id",
       element: <ContactTechnician />
+    },{
+     path: "/profile/technician-profile/:id",
+      element: <TechnicianProfile />
     },
     {
       path: "*",
