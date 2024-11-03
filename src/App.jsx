@@ -15,6 +15,9 @@ import Sidebar from "./Components/Sidebar";
 import Profile from "./Pages/Profile";
 import ContactTechnician from "./Pages/ContactTechnician";
 import TechnicianProfile from "./Pages/TechnicianProfile";
+import Forgot from "./Pages/Forgot";
+import OtpCode from "./Pages/OtpCode";
+import NewPassword from "./Pages/NewPassword";
 
 export default function App() {
   const route = createBrowserRouter([
@@ -63,6 +66,17 @@ export default function App() {
     },{
      path: "/profile/technician-profile/:id",
       element: <TechnicianProfile />
+    },{
+      path: "/forgot-password",
+      element: <Forgot />
+    },
+    {
+      path: "/VerifyOtp/:email",
+      element: <OtpCode />
+    },
+    {
+      path: "NewPassword/:email/:code",
+      element: <NewPassword />
     },
     {
       path: "*",

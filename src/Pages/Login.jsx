@@ -106,7 +106,7 @@ const Login = () => {
             </span>
           </p>
           <p className="form-text">
-            <a href="#">Mot de passe oublié?</a>
+            <a href="/forgot-password">Mot de passe oublié?</a>
           </p>
         </div>
       </div>

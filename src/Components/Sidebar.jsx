@@ -139,7 +139,7 @@ const Sidebar = ({ setActivePage }) => {
                                         width={100} 
                                     /><br />
                                     <p>{userData && userData.firstname}</p>
-                                    <BiEdit size={25} color="white" /> 
+                                    <BiEdit size={25} color="white"  /> 
                                 </div>
                 
                                 <ul className="list-unstyled components">

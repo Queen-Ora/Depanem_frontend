@@ -257,12 +257,14 @@ export default function Greetings() {
                     src={ tech && tech.avatar ? 'http://localhost:8000/uploads/' + tech.avatar : 'http://localhost:8000/default.png'} 
                     alt={tech.name}
                     onClick={() => showContact(tech)}
-                    className="rounded-circle mx-auto mt-3"
+                    className="rounded-circle mx-auto mt-3 cursor-pointer"
+                    title="Voir les Informations du technicien"
                     style={{
                       width: "50px",
                       height: "50px",
                       objectFit: "cover",
                       border: "3px solid #007bff",
+                      cursor:'pointer',
                     }}
                   />
                   <Card.Body style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
