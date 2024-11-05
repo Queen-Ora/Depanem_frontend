@@ -1,8 +1,8 @@
 import React from 'react';
-import Best1 from '../assets/img/team-1.jpg';
-import Best2 from '../assets/img/team-2.jpg';
-import Best3 from '../assets/img/team-3.jpg';
-import Best4 from '../assets/img/team-4.jpg';
+import Best1 from '../assets/img/ideo2.webp';
+import Best2 from '../assets/img/une femme noire mecanicienne.png';
+import Best3 from '../assets/img/un plombier africain.png';
+import Best4 from '../assets/img/ideo4.webp';
 import { FaFacebook } from 'react-icons/fa';
 import { BsWhatsapp } from 'react-icons/bs';
 import { IoLogoTiktok } from 'react-icons/io5';
@@ -21,8 +21,8 @@ export default function OurBests() {
             { 
               id: 1, 
               img: Best1, 
-              name: 'John Doe', 
-              designation: 'Plumber', 
+              name: 'Maurice AKAKPO', 
+              designation: 'Climaticien', 
               facebook: 'https://facebook.com/johndoe', 
               whatsapp: 'https://wa.me/1234567890', // Lien WhatsApp
               tiktok: 'https://tiktok.com/@johndoe' // Lien TikTok
@@ -30,8 +30,8 @@ export default function OurBests() {
             { 
               id: 2, 
               img: Best2, 
-              name: 'Jane Smith', 
-              designation: 'Technician', 
+              name: 'Gagachou ABALO', 
+              designation: 'Mecanicienne Auto', 
               facebook: 'https://facebook.com/janesmith', 
               whatsapp: 'https://wa.me/1234567891', // Lien WhatsApp
               tiktok: 'https://tiktok.com/@janesmith' // Lien TikTok
@@ -39,17 +39,17 @@ export default function OurBests() {
             { 
               id: 3, 
               img: Best3, 
-              name: 'Sam Wilson', 
-              designation: 'Engineer', 
-              facebook: 'https://facebook.com/samwilson', 
-              whatsapp: 'https://wa.me/1234567892', // Lien WhatsApp
-              tiktok: 'https://tiktok.com/@samwilson' // Lien TikTok
+              name: 'Eliezer LARE', 
+              designation: 'Plombier', 
+              facebook: 'https://facebook.com/Eliezer Lare', 
+              whatsapp: 'https://wa.me/92622266', // Lien WhatsApp
+              tiktok: 'https://tiktok.com/@queen.ora05' // Lien TikTok
             },
             { 
               id: 4, 
               img: Best4, 
-              name: 'Alice Johnson', 
-              designation: 'Consultant', 
+              name: 'Regina KOAMI', 
+              designation: 'Electricienne', 
               facebook: 'https://facebook.com/alicejohnson', 
               whatsapp: 'https://wa.me/1234567893', // Lien WhatsApp
               tiktok: 'https://tiktok.com/@alicejohnson' // Lien TikTok

@@ -23,6 +23,8 @@ export default function Greetings() {
       setIsLoadingTechs(true); // Indique le début du chargement
       try {
         const response = await axios.get('http://localhost:8000/api/depanem/GetAllTechnicians');
+        // console.log(response);
+        
         const data = response.data;
         setTechnicians(data);
       } catch (error) {

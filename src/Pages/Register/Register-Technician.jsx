@@ -64,14 +64,16 @@ const navigate = useNavigate();
       localStorage.setItem('UserId', response.data.user.id);
       navigate('/profile');
     } catch (error) {
-      if (error.response && error.response.data) {
-        // Afficher les erreurs de validation
-        Object.values(error.response.data.data).forEach((message) => {
-          toast.error(message.join(', '));
-        });
-      } else {
-        toast.error('Une erreur est survenue lors de l\'inscription');
-      }
+      console.log(error);
+      
+      // if (error.response && error.response.data) {
+      //   // Afficher les erreurs de validation
+      //   Object.values(error.response.data.data).forEach((message) => {
+      //     toast.error(message.join(', '));
+      //   });
+      // } else {
+      //   toast.error('Une erreur est survenue lors de l\'inscription');
+      // }
     } finally {
       setLoading(false);
     }

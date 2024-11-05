@@ -1,9 +1,9 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import Testimonial1 from '../assets/img/testimonial-1.jpg';
-import Testimonial2 from '../assets/img/testimonial-2.jpg';
-import Testimonial3 from '../assets/img/testimonial-3.jpg';
-import Testimonial4 from '../assets/img/testimonial-4.jpg';
+import Testimonial1 from '../assets/img/WhatsApp Image 2024-10-02 at 5.27.04 PM (1).jpeg';
+import Testimonial2 from '../assets/img/WhatsApp Image 2024-10-02 at 5.27.04 PM (1).jpeg';
+import Testimonial3 from '../assets/img/WhatsApp Image 2024-10-02 at 5.27.04 PM (1).jpeg';
+import Testimonial4 from '../assets/img/WhatsApp Image 2024-10-02 at 5.27.04 PM (1).jpeg';
 import { FaStar } from 'react-icons/fa';  // Utiliser les icônes de React
 
 export default function Testimonials() {
