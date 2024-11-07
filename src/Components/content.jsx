@@ -5,6 +5,7 @@ import Greetings from "./Greetings";
 import Dashboard from "./Dashboard";
 import TechnicianRequests from "./Example";
 import ReceivedRequests from "./ReceivedRequests";
+import Opinion from "../Pages/Opinion";
 
 const Content = ({ activePage }) => {
   const renderContent = () => {
@@ -13,14 +14,13 @@ const Content = ({ activePage }) => {
         return <Greetings />;
       case "history":
         return <TechnicianRequests />;
-        <h2 style={{ textAlign: "center" }}>Mon historique</h2>;
       case "settings":
         return <h2 style={{ textAlign: "center" }}>Paramètres</h2>;
       case "technicianDashboard":
         return <Dashboard />;
-        // <h2 style={{ textAlign: "center" }}>Dashboard</h2>;
-      case "portfolio":
-        return <h2 style={{ textAlign: "center" }}>Portfolio</h2>;
+   
+      case "feedback":
+        return <Opinion />;
       case "notifications":
         return <ReceivedRequests />;
       case "contact":

@@ -36,6 +36,8 @@ body {
     left: -250px; /* Start hidden by positioning offscreen */
     transition: all 0.3s ease; /* Smooth transition */
     z-index: 1000; /* Ensure it's on top of other elements */
+    /* overflow: scroll; */
+    /* border: 4px solid #ccc; */
 }
 
 #sidebar.active {
@@ -51,7 +53,9 @@ body {
     cursor: pointer;
     border-radius: 0px 90px 0px 0px;
     /* border-radius: 20px; */
+    /* background: #26e614; */
     background: #4214e6;
+/* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
 }
 
 #sidebar .sidebar-header p {
@@ -71,6 +75,20 @@ body {
 #sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid #d4a40e;
+    /* border: 4px solid #ccc; */
+    overflow: scroll;
+    height: 300px;
+    /* --webkit-overflow-scrolling: touch; */
+    /* border-radius: 20px; */
+    /* border-radius: 0px 90px 0px 0px; */
+    /* background: #26e614; */
+    /* background: #4214e6; */
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
+}
+
+#sidebar ul.components::-webkit-scrollbar {
+    width:0px; /* Largeur de la scrollbar */
+    /* color: transparent; */
 }
 
 #sidebar ul li a {
@@ -88,6 +106,7 @@ body {
     width: 100%;
     padding: 20px;
     transition: margin-left 0.3s ease;
+
     z-index: 1; /* Content stays below the sidebar */
 }
 

@@ -18,6 +18,8 @@ import TechnicianProfile from "./Pages/TechnicianProfile";
 import Forgot from "./Pages/Forgot";
 import OtpCode from "./Pages/OtpCode";
 import NewPassword from "./Pages/NewPassword";
+import UserEdit from "./Pages/UserEdit";
+import TechnicianEdit from "./Pages/TechnicianEdit";
 
 export default function App() {
   const route = createBrowserRouter([
@@ -77,10 +79,16 @@ export default function App() {
     {
       path: "NewPassword/:email/:code",
       element: <NewPassword />
+    },{
+      path: "profile/userEdit/:id",
+      element: <UserEdit />
+    },{
+      path: "profile/technicianEdit/:id",
+      element: <TechnicianEdit />
     },
     {
       path: "*",
-      element: ''
+      element: '404'
     }
   ]);
   

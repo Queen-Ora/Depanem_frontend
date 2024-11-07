@@ -8,6 +8,9 @@ import { GoHistory } from 'react-icons/go';
 import { IoSettings } from 'react-icons/io5';
 import { ImStatsDots } from 'react-icons/im';
 import { Badge } from 'react-bootstrap';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { MdFeedback } from 'react-icons/md';
+import { AiFillSafetyCertificate } from 'react-icons/ai';
 
 const Sidebar = ({ setActivePage }) => {
     const [userData, setUserData] = useState(null);
@@ -15,6 +18,7 @@ const Sidebar = ({ setActivePage }) => {
     const [userType, setUserType] = useState(null);
     const userId = JSON.parse(localStorage.getItem('UserId'));
     const [notificationCount, setNotificationCount] = useState(); // Notification count fixé à 5 pour le moment
+    const navigate = useNavigate();
 
     const toggleSidebar = () => {
         setIsActive(!isActive);
@@ -80,6 +84,14 @@ const Sidebar = ({ setActivePage }) => {
         return () => clearInterval(intervalId);
     }, [userId]);
 
+    const handleEditClick = () => {
+        navigate(`userEdit/${userId}`);
+      };
+
+      const handleTechnicianEdit = () => {
+        navigate(`technicianEdit/${userId}`);
+      };
+
     // Fonction pour la déconnexion
     const handleLogout = () => {
         localStorage.removeItem('UserId');
@@ -101,9 +113,9 @@ const Sidebar = ({ setActivePage }) => {
                                        /><br />
                                        <p>{userData && userData.firstname}</p>
                                        <p style={{fontFamily: "DynaPuff"}}>{userData && userData.profession}</p>
-                                       <BiEdit size={25} color="white" /> 
+                                       <BiEdit size={25} color="white" title='Modifier le profil' onClick={() => handleTechnicianEdit()} /> 
                                    </div>
-                   
+                                   {/* <BiEdit size={25} color="white" title='Modifier le profil' onClick={handleEditClick } /> */}
                                    <ul className="list-unstyled components">
                                        <li onClick={() => handlePageChange('technicianDashboard')}>
                                            <button className="btn btn-primary"> <ImStatsDots size={25}/> Tableau de bord</button>
@@ -120,6 +132,14 @@ const Sidebar = ({ setActivePage }) => {
                                        <li onClick={() => handlePageChange('history')}>
                                            <button className="btn btn-primary"> <GoHistory size={25}/> Historique</button>
                                        </li>
+                                       <li onClick={() => handlePageChange('feedback')}>
+                                        <button className="btn btn-primary"> <MdFeedback size={25}/> Publier un avis</button>
+                                    </li>
+
+                                       <li onClick={() => handlePageChange('certificate')}>
+                                        <button className="btn btn-primary"> <AiFillSafetyCertificate  size={25}/> Demander un certificat</button>
+                                    </li>
+                                     
                                        <li onClick={() => handlePageChange('settings')}>
                                            <button className="btn btn-primary"> <IoSettings size={25}/> Paramètres</button>
                                        </li>
@@ -139,7 +159,7 @@ const Sidebar = ({ setActivePage }) => {
                                         width={100} 
                                     /><br />
                                     <p>{userData && userData.firstname}</p>
-                                    <BiEdit size={25} color="white"  /> 
+                                    <BiEdit size={25} color="white" title='Modifier le profil' onClick={handleEditClick } /> 
                                 </div>
                 
                                 <ul className="list-unstyled components">
@@ -151,6 +171,9 @@ const Sidebar = ({ setActivePage }) => {
                                     </li>
                                     <li onClick={() => handlePageChange('settings')}>
                                         <button className="btn btn-primary"> <IoSettings size={25}/> Paramètres</button>
+                                    </li>
+                                    <li onClick={() => handlePageChange('feedback')}>
+                                        <button className="btn btn-primary"> <MdFeedback size={25}/> Publier un avis</button>
                                     </li>
                                     <a href="/"><button className="btn btn-primary"><FaArrowLeft size={25} /> Retour</button></a>
                                 </ul> 

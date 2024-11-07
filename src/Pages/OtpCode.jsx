@@ -71,6 +71,7 @@ export default function OtpCode() {
     </form>
   </div>
 </div>
+
 </div>
   )
 }
