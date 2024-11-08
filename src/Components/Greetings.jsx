@@ -20,22 +20,28 @@ export default function Greetings() {
   // Fetch technicians data from API
   useEffect(() => {
     const fetchTechnicians = async () => {
-      setIsLoadingTechs(true); // Indique le début du chargement
-      try {
-        const response = await axios.get('http://localhost:8000/api/depanem/GetAllTechnicians');
-        // console.log(response);
-        
-        const data = response.data;
-        setTechnicians(data);
-      } catch (error) {
-        console.error('Error fetching technicians:', error);
-      } finally {
-        setIsLoadingTechs(false); // Fin du chargement
-      }
+        setIsLoadingTechs(true); // Indique le début du chargement
+        try {
+            const response = await axios.get('http://localhost:8000/api/depanem/GetAllTechnicians');
+            const data = response.data;
+            setTechnicians(data);
+        } catch (error) {
+            console.error('Error fetching technicians:', error);
+        } finally {
+            setIsLoadingTechs(false); // Fin du chargement
+        }
     };
 
+    // Exécute la fonction immédiatement une fois au montage
     fetchTechnicians();
-  }, []);
+
+    // Configure un intervalle pour exécuter la fonction toutes les 10 secondes
+    const intervalId = setInterval(fetchTechnicians, 5000); // 10000 ms = 10 s
+
+    // Nettoie l'intervalle lorsque le composant est démonté
+    return () => clearInterval(intervalId);
+}, []);
+
 
   // Handle search input change
   const handleSearch = (event) => {

@@ -16,17 +16,20 @@ const Content = ({ activePage }) => {
         return <TechnicianRequests />;
       case "settings":
         return <h2 style={{ textAlign: "center" }}>Paramètres</h2>;
-      case "technicianDashboard":
+      // case "technicianDashboard":
+      //   return <h2 style={{ textAlign: "center" }}>Dashboard</h2>;
         return <Dashboard />;
    
       case "feedback":
         return <Opinion />;
+      case "depanemBot":
+        return <h2 style={{ textAlign: "center" }}>Depanem Bot</h2>;
       case "notifications":
         return <ReceivedRequests />;
       case "contact":
         return <h2 style={{ textAlign: "center" }}>Contact Us</h2>;
       default:
-        return <h2 style={{ textAlign: "center" }}>Welcome!</h2>;
+        return <h2 style={{ textAlign: "center" }}>Bienvenue!</h2>;
     }
   };
 

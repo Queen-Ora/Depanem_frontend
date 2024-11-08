@@ -10,7 +10,7 @@ import { ImStatsDots } from 'react-icons/im';
 import { Badge } from 'react-bootstrap';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { MdFeedback } from 'react-icons/md';
-import { AiFillSafetyCertificate } from 'react-icons/ai';
+import { AiFillMessage, AiFillSafetyCertificate } from 'react-icons/ai';
 
 const Sidebar = ({ setActivePage }) => {
     const [userData, setUserData] = useState(null);
@@ -117,9 +117,9 @@ const Sidebar = ({ setActivePage }) => {
                                    </div>
                                    {/* <BiEdit size={25} color="white" title='Modifier le profil' onClick={handleEditClick } /> */}
                                    <ul className="list-unstyled components">
-                                       <li onClick={() => handlePageChange('technicianDashboard')}>
+                                       {/* <li onClick={() => handlePageChange('technicianDashboard')}>
                                            <button className="btn btn-primary"> <ImStatsDots size={25}/> Tableau de bord</button>
-                                       </li>
+                                       </li> */}
                                        <li onClick={() => handlePageChange('home')}>
                                            <button className="btn btn-primary"> <IoMdHome size={25}/> Accueil</button>
                                        </li>
@@ -136,10 +136,13 @@ const Sidebar = ({ setActivePage }) => {
                                         <button className="btn btn-primary"> <MdFeedback size={25}/> Publier un avis</button>
                                     </li>
 
-                                       <li onClick={() => handlePageChange('certificate')}>
+                                       {/* <li onClick={() => handlePageChange('certificate')}>
                                         <button className="btn btn-primary"> <AiFillSafetyCertificate  size={25}/> Demander un certificat</button>
-                                    </li>
+                                    </li> */}
                                      
+                                       <li onClick={() => handlePageChange('depanemBot')}>
+                                           <button className="btn btn-primary"> <AiFillMessage size={25}/> DepanemBot</button>
+                                       </li>
                                        <li onClick={() => handlePageChange('settings')}>
                                            <button className="btn btn-primary"> <IoSettings size={25}/> Paramètres</button>
                                        </li>
@@ -169,11 +172,14 @@ const Sidebar = ({ setActivePage }) => {
                                     <li onClick={() => handlePageChange('history')}>
                                         <button className="btn btn-primary"> <GoHistory size={25}/> Historique</button>
                                     </li>
-                                    <li onClick={() => handlePageChange('settings')}>
-                                        <button className="btn btn-primary"> <IoSettings size={25}/> Paramètres</button>
-                                    </li>
                                     <li onClick={() => handlePageChange('feedback')}>
                                         <button className="btn btn-primary"> <MdFeedback size={25}/> Publier un avis</button>
+                                    </li>
+                                    <li onClick={() => handlePageChange('depanemBot')}>
+                                           <button className="btn btn-primary"> <AiFillMessage size={25}/> DepanemBot</button>
+                                       </li>
+                                    <li onClick={() => handlePageChange('settings')}>
+                                        <button className="btn btn-primary"> <IoSettings size={25}/> Paramètres</button>
                                     </li>
                                     <a href="/"><button className="btn btn-primary"><FaArrowLeft size={25} /> Retour</button></a>
                                 </ul> 
