@@ -111,7 +111,7 @@ toast.error('Les mots de passe ne sont pas identiques');
             </div>
 
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email  <span className="text-danger">(Pas obligatoire!)</span></label>
+              <label htmlFor="email" className="form-label">Email</label>
               <input
                 type="email"
                 className="form-control"
@@ -170,7 +170,8 @@ toast.error('Les mots de passe ne sont pas identiques');
               onClick={handleImageClick}
             >
               Ajouter une photo de profil 
-            </button><span className="text-danger">(Pas obligatoire!)</span>
+            </button>
+            {/* <span className="text-danger">(Pas obligatoire!)</span> */}
 
             {/* Input pour télécharger l'image, qui sera caché par défaut */}
             {imageUploadVisible && (

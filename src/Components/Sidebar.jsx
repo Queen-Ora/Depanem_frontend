@@ -132,17 +132,17 @@ const Sidebar = ({ setActivePage }) => {
                                        <li onClick={() => handlePageChange('history')}>
                                            <button className="btn btn-primary"> <GoHistory size={25}/> Historique</button>
                                        </li>
-                                       <li onClick={() => handlePageChange('feedback')}>
+                                       {/* <li onClick={() => handlePageChange('feedback')}>
                                         <button className="btn btn-primary"> <MdFeedback size={25}/> Publier un avis</button>
-                                    </li>
+                                    </li> */}
 
                                        {/* <li onClick={() => handlePageChange('certificate')}>
                                         <button className="btn btn-primary"> <AiFillSafetyCertificate  size={25}/> Demander un certificat</button>
                                     </li> */}
                                      
-                                       <li onClick={() => handlePageChange('depanemBot')}>
+                                       {/* <li onClick={() => handlePageChange('depanemBot')}>
                                            <button className="btn btn-primary"> <AiFillMessage size={25}/> DepanemBot</button>
-                                       </li>
+                                       </li> */}
                                        <li onClick={() => handlePageChange('settings')}>
                                            <button className="btn btn-primary"> <IoSettings size={25}/> Paramètres</button>
                                        </li>
@@ -172,12 +172,12 @@ const Sidebar = ({ setActivePage }) => {
                                     <li onClick={() => handlePageChange('history')}>
                                         <button className="btn btn-primary"> <GoHistory size={25}/> Historique</button>
                                     </li>
-                                    <li onClick={() => handlePageChange('feedback')}>
+                                    {/* <li onClick={() => handlePageChange('feedback')}>
                                         <button className="btn btn-primary"> <MdFeedback size={25}/> Publier un avis</button>
-                                    </li>
-                                    <li onClick={() => handlePageChange('depanemBot')}>
+                                    </li> */}
+                                    {/* <li onClick={() => handlePageChange('depanemBot')}>
                                            <button className="btn btn-primary"> <AiFillMessage size={25}/> DepanemBot</button>
-                                       </li>
+                                       </li> */}
                                     <li onClick={() => handlePageChange('settings')}>
                                         <button className="btn btn-primary"> <IoSettings size={25}/> Paramètres</button>
                                     </li>
