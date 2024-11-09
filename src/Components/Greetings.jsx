@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Button, Card, Col, Form, Modal, Row } from "react-bootstrap";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,133 +8,162 @@ import toast from "react-hot-toast";
 
 export default function Greetings() {
   const [showModal, setShowModal] = useState(false);
+  const [newResponseModal, setNewResponseModal] = useState(false); // Pour le modal de réponse
   const [selectedProfession, setSelectedProfession] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [technicians, setTechnicians] = useState(null);
-  const [isLoading, setIsLoading] = useState(false)
-  const [loadingTechId, setLoadingTechId] = useState(null); // Pour indiquer le technicien en cours de chargement
-  const [isLoadingTechs, setIsLoadingTechs] = useState(true); // Pour afficher le chargement des techniciens
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadingTechId, setLoadingTechId] = useState(null); 
+  const [isLoadingTechs, setIsLoadingTechs] = useState(true); 
+  const [response, setResponse] = useState(null); // État pour stocker la réponse
+ // Utilisé pour détecter une nouvelle réponse
   const navigate = useNavigate();
-  const userId = localStorage.getItem('UserId');
+  const prevResponseRef = useRef([]);
+  const userId = localStorage.getItem("UserId");
 
-  // Fetch technicians data from API
   useEffect(() => {
     const fetchTechnicians = async () => {
-        setIsLoadingTechs(true); // Indique le début du chargement
-        try {
-            const response = await axios.get('http://localhost:8000/api/depanem/GetAllTechnicians');
-            const data = response.data; 
-            console.log("data: " + data)
-            setTechnicians(data);
-        } catch (error) {
-            console.error('Error fetching technicians:', error);
-        } finally {
-            setIsLoadingTechs(false); // Fin du chargement
-        }
+
+      setIsLoadingTechs(true);
+      try {
+        const response = await axios.get("http://localhost:8000/api/depanem/GetAllTechnicians");
+        const data = response.data;
+        setTechnicians(data);
+      } catch (error) {
+        console.error("Error fetching technicians:", error);
+      } finally {
+        setIsLoadingTechs(false);
+      }
+
     };
 
-    // Exécute la fonction immédiatement une fois au montage
+    const fetchResponse = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8000/api/depanem/GetRequestsByUser/${userId}`);
+        const data = response.data.data;
+        console.log("Réponse de l'API:", data);
+        // Vérifie si la réponse a changé et ouvre le modal de notification si c'est le cas
+        if (prevResponseRef.current && JSON.stringify(prevResponseRef.current) !== JSON.stringify(data)) {
+          setNewResponseModal(true);
+        }
+  
+        // Parcourt chaque demande pour détecter les changements de statut
+        data.forEach((request) => {
+          const prevRequest = prevResponseRef.current.find((prev) => prev.id === request.id);
+          console.log("Request:", request);
+          console.log("Previous Request:", prevRequest);
+          // Si le statut a changé, afficher une notification
+          if (prevRequest && prevRequest.status !== request.status) {
+            if (request.status === "rejeté") {
+              alert("La requête est rejetée.");
+              toast.error("Votre demande a été rejetée.");
+            } else if (request.status === "fini") {
+              toast.success("La demande a été terminée.");
+            }
+          }
+        });
+  
+        // Met à jour la réponse et la référence de la réponse précédente
+        setResponse(data);
+        prevResponseRef.current = data;
+      } catch (error) {
+        // Gère les erreurs de requêtes
+        console.error("Erreur lors de la récupération des demandes :", error);
+      }
+    };
+  
+
+    // Exécute les appels API une première fois au montage
     fetchTechnicians();
+    fetchResponse();
 
-    // Configure un intervalle pour exécuter la fonction toutes les 10 secondes
-    const intervalId = setInterval(fetchTechnicians, 5000); // 10000 ms = 10 s
+    // Définis un intervalle pour actualiser la liste des techniciens toutes les 5 secondes
+    const technicianIntervalId = setInterval(fetchTechnicians, 5000);
 
-    // Nettoie l'intervalle lorsque le composant est démonté
-    return () => clearInterval(intervalId);
-}, []);
+    // Définis un autre intervalle pour vérifier les réponses toutes les 7 secondes
+    const responseIntervalId = setInterval(fetchResponse, 7000);
 
+    // Nettoyage des intervalles au démontage du composant
+    return () => {
+      clearInterval(technicianIntervalId);
+      clearInterval(responseIntervalId);
+    };
+  }, [userId]);
 
-  // Handle search input change
+  const handleCloseNewResponseModal = () => setNewResponseModal(false);
+
+  // Code pour le contact et la recherche des techniciens
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  // Handle showing modal with technicians for selected profession
   const handleShowModal = (profession) => {
     setSelectedProfession(profession);
     setShowModal(true);
   };
 
-    const handleContactClick = (tech) => {
-      // Vérifie si le technicien a un ID valide
-      if (!tech || !tech.id) {
-        console.error("Technician ID is undefined:", tech);
-        return;
+  const handleContactClick = (tech) => {
+    if (!tech || !tech.id) {
+      console.error("Technician ID is undefined:", tech);
+      return;
+    }
+    setLoadingTechId(tech.id);
+    const sendRequest = async () => {
+      setIsLoading(true);
+      try {
+        await axios.post(`http://localhost:8000/api/depanem/SendRequest/${tech.id}/${userId}`);
+        toast.success("Votre demande a été bien envoyée");
+      } catch (error) {
+        console.error("Error:", error);
+        const errorMessage = error.response?.data?.data?.localisation[0] || "Erreur lors de l'envoi de la demande.";
+        toast.error(errorMessage);
+      } finally {
+        setLoadingTechId(null);
       }
-      setLoadingTechId(tech.id);
-      // Fonction pour envoyer la demande
-      const sendRequest = async () => {
-        setIsLoading(true);
-        try {
-          const response = await axios.post(`http://localhost:8000/api/depanem/SendRequest/${tech.id}/${userId}`, {
-          });
-    
-          // Succès de l'envoi de la demande
-          toast.success('Votre demande a été bien envoyée');
-    
-          // Navigation vers la page de contact du technicien après l'envoi
-          // navigate(`/contact-technician/${tech.id}`);
-        } catch (error) {
-          console.error('Error:', error);
-    
-          // Gère les erreurs de validation ou autres
-          if (error.response && error.response.status === 422) {
-            const errorMessage = error.response.data.data?.localisation[0] || 'Erreur de validation';
-            toast.error(errorMessage);
-          } else {
-            toast.error('Une erreur est survenue lors de l\'envoi de la demande.');
-          }
-        } finally {
-          setLoadingTechId(null); // Réinitialise l'indicateur de chargement
-        }
-      };
-    
-      // Appelle la fonction pour envoyer la requête
-      sendRequest();
     };
+    sendRequest();
+  };
 
-    const showContact = (tech) => {
-        navigate(`technician-profile/${tech.id}`); 
-    // alert(`Technician ID: ${tech.id}`)
-    };
-    
+  const showContact = (tech) => {
+    navigate(`technician-profile/${tech.id}`);
+  };
 
   const handleCloseModal = () => setShowModal(false);
 
-  // Filter technicians by selected profession and search term
   const filteredTechnicians = technicians
     ? technicians[selectedProfession]?.filter((tech) =>
         tech.name.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : [];
-if (technicians) { console.log(technicians)}
+
+
 
   const controlStyle = {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    backgroundColor: '#007bff', 
-    border: 'none',
-    width: '50px',
-    height: '50px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: '50%',
-    cursor: 'pointer',
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    backgroundColor: "#007bff",
+    border: "none",
+    width: "50px",
+    height: "50px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "50%",
+    cursor: "pointer",
   };
 
   const iconStyle = {
-    color: 'white',
-    fontSize: '1.5rem',
+    color: "white",
+    fontSize: "1.5rem",
   };
 
   return (
     <div className="container mt-5">
       <h1 className="text-center">Bonjour, De qui avez-vous besoin?</h1>
 
-      {/* Carousel */}
-      <div id="cardCarousel" className="carousel slide" data-bs-ride="carousel">
+        {/* Carousel */}
+        <div id="cardCarousel" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           {/* Slide 1 */}
           <div className="carousel-item active">
@@ -240,14 +269,13 @@ if (technicians) { console.log(technicians)}
         </button>
       </div>
 
-      {/* Modal */}
+      {/* Modal pour la liste des techniciens */}
       <Modal show={showModal} onHide={handleCloseModal}>
-
-
         <Modal.Header closeButton>
           <Modal.Title>Liste des {selectedProfession}s</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {/* Recherche et liste des techniciens */}
           <Form.Group className="mb-3">
             <Form.Control
               type="text"
@@ -295,6 +323,19 @@ if (technicians) { console.log(technicians)}
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseModal}>
             Fermer
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Modal de notification pour une nouvelle réponse */}
+      <Modal show={newResponseModal} onHide={handleCloseNewResponseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Notification</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Le technicien est en route pour répondre à votre demande !</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleCloseNewResponseModal}>
+            OK
           </Button>
         </Modal.Footer>
       </Modal>
