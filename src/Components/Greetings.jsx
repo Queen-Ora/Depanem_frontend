@@ -23,7 +23,8 @@ export default function Greetings() {
         setIsLoadingTechs(true); // Indique le début du chargement
         try {
             const response = await axios.get('http://localhost:8000/api/depanem/GetAllTechnicians');
-            const data = response.data;
+            const data = response.data; 
+            console.log("data: " + data)
             setTechnicians(data);
         } catch (error) {
             console.error('Error fetching technicians:', error);
@@ -106,7 +107,7 @@ export default function Greetings() {
         tech.name.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : [];
-
+if (technicians) { console.log(technicians)}
 
   const controlStyle = {
     position: 'absolute',
