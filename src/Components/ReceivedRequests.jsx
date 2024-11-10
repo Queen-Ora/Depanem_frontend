@@ -23,8 +23,7 @@ export default function ReceivedRequests() {
 
   const fetchRequests = async () => {
     try {
-      const response = await axios.get(
-        `http://localhost:8000/api/depanem/GetRequestsByTechnician/${userId}`
+      const response = await axios.get(`http://localhost:8000/api/depanem/GetRequestsByTechnician/${userId}`
       );
 
       const newRequests = response.data.data;
@@ -46,8 +45,8 @@ export default function ReceivedRequests() {
   useEffect(() => {
     fetchRequests();
 
-    const intervalId = setInterval(fetchRequests, 5000);
-    return () => clearInterval(intervalId);
+    // const intervalId = setInterval(fetchRequests, 5000);
+    // return () => clearInterval(intervalId);
   }, [userId]);
 
   // Fonction pour gérer la validation
@@ -65,11 +64,13 @@ export default function ReceivedRequests() {
     }
   };
   
-  const handleFinishOrReject = (requestId) => {
+  const handleFinishOrReject = async (requestId) => {
     if (validatedRequests[requestId]) {
       // Action à exécuter si le texte du bouton est "Finir"
-      alert("La requête est terminée.");
+      // alert("La requête est terminée.");
       // Par exemple, une requête pour mettre à jour le statut de la requête :
+      const response = await axios.get(`http://localhost:8000/api/depanem/FinishRequest`);
+      console.log(response);
       // axios.post(`http://localhost:8000/api/depanem/FinishRequest/${requestId}`)
       //   .then(() => toast.success("La requête a été terminée avec succès"))
       //   .catch((error) => console.error("Erreur lors de la finalisation de la requête:", error));
@@ -77,9 +78,11 @@ export default function ReceivedRequests() {
       // Action à exécuter si le texte du bouton est "Rejeter"
     // alert("La requête est rejetée.");
       // Par exemple, une requête pour rejeter la requête :
-      axios.get(`http://localhost:8000/api/depanem/RejectRequest/${requestId}`)
-        .then(() => toast.success("La requête a été rejetée avec succès"))
-        .catch((error) => console.error("Erreur lors du rejet de la requête:", error));
+      const response = await axios.get(`http://localhost:8000/api/depanem/RejectRequest`);
+      console.log(response);
+      // axios.get(`http://localhost:8000/api/depanem/RejectRequest/${requestId}`)
+      //   .then(() => console.log("La requête a été rejetée avec succès"))
+      //   .catch((error) => console.error("Erreur lors du rejet de la requête:", error));
     }
   };
   
