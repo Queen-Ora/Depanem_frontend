@@ -59,7 +59,7 @@ export default function Testimonials() {
                 <img className="bg-light rounded-circle p-2 mx-auto mb-2" src={testimonial.img} style={{ width: '80px', height: '80px' }} alt={testimonial.name} />
                 <div className="mb-2">
                   {[...Array(testimonial.stars)].map((_, index) => (
-                    <FaStar color='#ffc' key={index} className="text-secondary" />
+                    <FaStar color='#f8882c' key={index} className="text-secondary" />
                   ))}
                 </div>
                 <h5 className="mb-1">{testimonial.name}</h5>

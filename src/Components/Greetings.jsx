@@ -211,7 +211,7 @@ export default function Greetings() {
   
       } catch (error) {
         console.error("Erreur lors de la récupération des demandes terminées :", error);
-        toast.error("Erreur lors de la récupération des demandes terminées.");
+        // toast.error("Erreur lors de la récupération des demandes terminées.");
       }
     };
   
@@ -279,6 +279,9 @@ export default function Greetings() {
     navigate(`technician-profile/${tech.id}`);
   };
 
+  const OpinionClick = () => {
+    navigate('/opinion');
+};
   const handleCloseModal = () => setShowModal(false);
 
   const filteredTechnicians = technicians
@@ -485,7 +488,7 @@ export default function Greetings() {
   <Modal.Body>
     La tache est terminée! <br />
     Voulez vous donnez un avis ? <br /> <br />
-    <Button variant="primary" >
+    <Button variant="primary" onClick={OpinionClick} >
       oui,Bien sur
     </Button>
   </Modal.Body>

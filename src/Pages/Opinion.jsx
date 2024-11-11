@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function Opinion() {
   const [opinion, setOpinion] = useState("");
   const [rate, setRate] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const userId = localStorage.getItem("UserId");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +21,7 @@ export default function Opinion() {
       toast.success(response.data.message);
       setOpinion("");
       setRate(1); // Réinitialiser le rating à 1 par défaut
+      navigate("/profile"); // Redirection vers la page dashboard
     //   console.log(response.data);
       setIsLoading(false); // Indiquer que le chargement est terminé
     } catch (error) {

@@ -20,6 +20,7 @@ import OtpCode from "./Pages/OtpCode";
 import NewPassword from "./Pages/NewPassword";
 import UserEdit from "./Pages/UserEdit";
 import TechnicianEdit from "./Pages/TechnicianEdit";
+import Opinion from "./Pages/Opinion";
 
 export default function App() {
   const route = createBrowserRouter([
@@ -85,6 +86,9 @@ export default function App() {
     },{
       path: "profile/technicianEdit/:id",
       element: <TechnicianEdit />
+    },{
+      path: "opinion",
+      element: <Opinion />
     },
     {
       path: "*",

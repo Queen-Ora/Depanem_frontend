@@ -69,20 +69,21 @@ export default function ReceivedRequests() {
       // Action à exécuter si le texte du bouton est "Finir"
       // alert("La requête est terminée.");
       // Par exemple, une requête pour mettre à jour le statut de la requête :
-      const response = await axios.get(`http://localhost:8000/api/depanem/FinishRequest`);
-      console.log(response);
-      // axios.post(`http://localhost:8000/api/depanem/FinishRequest/${requestId}`)
-      //   .then(() => toast.success("La requête a été terminée avec succès"))
-      //   .catch((error) => console.error("Erreur lors de la finalisation de la requête:", error));
+      // const response = await axios.get(`http://localhost:8000/api/depanem/FinishRequest/${requestId}/${userId}`);
+      // console.log(response);
+      axios.post(`http://localhost:8000/api/depanem/FinishRequest/${requestId}/${userId}`)
+        .then(() => toast.success("La requête a été terminée avec succès"))
+        .catch((error) => console.error("Erreur lors de la finalisation de la requête:", error));
     } else {
+      // alert(requestId);
       // Action à exécuter si le texte du bouton est "Rejeter"
     // alert("La requête est rejetée.");
       // Par exemple, une requête pour rejeter la requête :
-      const response = await axios.get(`http://localhost:8000/api/depanem/RejectRequest`);
-      console.log(response);
-      // axios.get(`http://localhost:8000/api/depanem/RejectRequest/${requestId}`)
-      //   .then(() => console.log("La requête a été rejetée avec succès"))
-      //   .catch((error) => console.error("Erreur lors du rejet de la requête:", error));
+      // const response = await axios.get(`http://localhost:8000/api/depanem/RejectRequest/${requestId}/${userId}`);
+      // console.log(response);
+      axios.get(`http://localhost:8000/api/depanem/RejectRequest/${requestId}/${userId}`)
+        .then(() => console.log("La requête a été rejetée avec succès"))
+        .catch((error) => console.error("Erreur lors du rejet de la requête:", error));
     }
   };
   
