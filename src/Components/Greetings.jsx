@@ -23,6 +23,7 @@ export default function Greetings() {
   const prevRejectedRequestsRef = useRef([]); // Référence pour stocker les demandes rejetées précédentes
   const [rejectedRequests, setRejectedRequests] = useState([]); // État pour stocker les demandes rejetées actuelles
   const prevFinishedRequestsRef = useRef([]);
+  const [username, setUsername] = useState("");
 
   const userId = localStorage.getItem("UserId");
 
@@ -239,7 +240,19 @@ export default function Greetings() {
   
   }, [userId]); // Le tableau de dépendances pour s'assurer que cela se lance lorsque userId change
   
-
+useEffect(() => {
+  const fetchUser = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8000/api/depanem/currentUser/${userId}`);
+    console.log(response.data);
+    setUsername(response.data.user.firstname + ' ' + response.data.user.lastname);
+    
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  fetchUser();
+}, [userId]);
 
   const handleCloseNewResponseModal = () => setNewResponseModal(false);
 
@@ -314,7 +327,7 @@ export default function Greetings() {
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center">Bonjour, De qui avez-vous besoin?</h1>
+      <h1 className="text-center">Bonjour, {username}</h1><h1 className="text-center"> De qui avez-vous besoin?</h1>
 
         {/* Carousel */}
         <div id="cardCarousel" className="carousel slide" data-bs-ride="carousel">
